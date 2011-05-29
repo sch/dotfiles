@@ -1,13 +1,39 @@
 " Example Vim graphical configuration.
 " Copy to ~/.gvimrc or ~/_gvimrc.
 
-set guifont=Inconsolata:h16            " Font family and font size.
-set antialias                     " MacVim: smooth fonts.
+set guifont=Monaco:h12            " Font family and font size.
+set noantialias                   " MacVim: smooth fonts.
 set encoding=utf-8                " Use UTF-8 everywhere.
 set guioptions-=T                 " Hide toolbar.
 set background=light              " Background.
-set lines=25 columns=100          " Window dimensions.
+set lines=55 columns=100          " Window dimensions.
+
+colorscheme solarized
 
 set guioptions-=r                 " Don't show right scrollbar
+set guioptions-=R
+set guioptions-=l		  " ...or the left one
+set guioptions-=L
 
+" expand window in fullscreen 
+set fuoptions=maxvert,maxhorz
+
+source ~/.vim/bundle/msanders-snipmate/after/plugin/snipMate.vim
+
+" command-t file browser
+if has("gui_macvim")
+    macmenu &File.New\ Tab key=<nop>
+    map <D-t> :CommandT<CR>
+endif
+
+" command-; for : 
+"if has("gui_macvim")
+"    macmenu &File.New\ Tab key=<nop>
+"    map <D-o>l<CR>
+"endif
+
+" command-1 for bufferexplorer: 
+"if has("gui_macvim")
+"    map <D-1>:NERDTree<CR>
+"endif
 

@@ -3,10 +3,12 @@
 
 set nocompatible                  " Must come first because it changes other options.
 
+silent! call pathogen#helptags()
 silent! call pathogen#runtime_append_all_bundles()
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
+filetype plugin on
 
 runtime macros/matchit.vim        " Load the matchit plugin.
 
@@ -20,58 +22,61 @@ set hidden                        " Handle multiple buffers better.
 set wildmenu                      " Enhanced command line completion.
 set wildmode=list:longest         " Complete files like a shell.
 
+" Open a file to edit in current directory
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>ew :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+
 set ignorecase                    " Case-insensitive searching.
 set smartcase                     " But case-sensitive if expression contains a capital letter.
-
-set number                        " Show line numbers.
-set ruler                         " Show cursor position.
 
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
 
+set number                        " Show line numbers.
+set ruler                         " Show cursor position.
 set wrap                          " Turn on line wrapping.
-set scrolloff=3                   " Show 3 lines of context around the cursor.
+set scrolloff=5                   " Show 5 lines of context around the cursor.
 
 set title                         " Set the terminal's title
+set laststatus=2                  " Show the status line all the time
+" Useful status information at bottom of screen
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 set visualbell                    " No beeping.
 
 set nobackup                      " Don't make a backup before overwriting a file.
 set nowritebackup                 " And again.
-set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
+set noswapfile                    " FUCK swapfiles
+set switchbuf=useopen             " don't reopen already opened buffers
 
 " UNCOMMENT TO USE
-"set tabstop=2                    " Global tab width.
-"set shiftwidth=2                 " And again, related.
-"set expandtab                    " Use spaces instead of tabs
+set tabstop=2                     " Global tab width.
+set shiftwidth=2                  " And again, related.
+"set shiftround                    " Use multiples of shiftwidth when using > and <
+set expandtab                     " Use spaces instead of tabs
+set showmatch                     " set show matching parenthesis
+"set smarttab                      " insert tabs on the start of a line according to shiftwidth, not tabstop
 
-set laststatus=2                  " Show the status line all the time
-" Useful status information at bottom of screen
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+" show hidded chars
+"set list
+"set listchars=tab:>.,trail:.,extends:#,nbsp:.
+"autocmd filetype html,xml set listchars-=tab:>.
 
-" Or use vividchalk
-" colorscheme vividchalk
-
-" Tab mappings.
-map <leader>tt :tabnew<cr>
-map <leader>te :tabedit
-map <leader>tc :tabclose<cr>
-map <leader>to :tabonly<cr>
-map <leader>tn :tabnext<cr>
-map <leader>tp :tabprevious<cr>
-map <leader>tf :tabfirst<cr>
-map <leader>tl :tablast<cr>
-map <leader>tm :tabmove
+" use solarized scheme, background can be 'light' or 'dark'
+set background=light
+colorscheme solarized
 
 " Uncomment to use Jamis Buck's file opening plugin
 "map <Leader>t :FuzzyFinderTextMate<Enter>
 
 " Controversial...swap colon and semicolon for easier commands
-"nnoremap ; :
-"nnoremap : ;
+nnoremap ; :
+nnoremap : ;
 
-"vnoremap ; :
-"vnoremap : ;
+vnoremap ; :
+vnoremap : ;
 
 " Automatic fold settings for specific files. Uncomment to use.
 " autocmd FileType ruby setlocal foldmethod=syntax
@@ -80,4 +85,22 @@ map <leader>tm :tabmove
 " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
 
+" Markdown to HTML
+nmap <leader>md :%!/usr/bin/Markdown.pl --html4tags <cr>
+
+" Bubble single lines
+nmap <C-Up> ddkP
+nmap <C-Down> ddp
+" Bubble multiple lines
+vmap <C-Up> xkP`[V`]
+vmap <C-Down> xp`[V`]
+
+let mapleader = ","                  "easier leader
+
+"buffnav
+map <Leader>, <C-^>
+
+" Use Q for formatting the current paragraph (or selection)
+vmap Q gq
+nmap Q gqap
 
