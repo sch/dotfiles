@@ -1,14 +1,20 @@
+
+export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=/usr/local/mysql/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
 
-export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
+# Load RVM function' >> ~/.bash_profile
+[[ -s "/Users/adrian/.rvm/scripts/rvm" ]] && source "/Users/adrian/.rvm/scripts/rvm"
 
+# node.js nonsense
+export NODE_PATH=/usr/local/lib/node
+
+export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
 
 # Set PATH, CDPATH, EDITOR, etc.
 #
 # When setting the path, you use "export PATH=" then the dir
 # 	"export PATH=[dir]:$PATH" will prepend the path with [dir]
 # 	"export PATH=:$PATH:[dir]" will append the path with [dir]
-#
 #

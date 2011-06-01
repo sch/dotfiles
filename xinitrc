@@ -1,0 +1,6 @@
+setxkbmap gb
+unclutter &
+autocutsel -f
+clipbored
+exec wmfs
+

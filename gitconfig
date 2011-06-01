@@ -1,0 +1,7 @@
+[user]
+	name = Adrian Schaedle
+	email = schaedles@gmail.com
+[github]
+	user = sch
+[core]
+	autocrlf = input
