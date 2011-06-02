@@ -1,0 +1,21 @@
+[submodule "vim/bundle/rails"]
+	path = vim/bundle/rails
+	url = https://github.com/tpope/vim-rails.git
+[submodule "vim/bundle/solarized"]
+	path = vim/bundle/solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "vim/bundle/commandT"]
+	path = vim/bundle/commandT
+	url = https://github.com/wincent/Command-T.git
+[submodule "vim/bundle/rooter"]
+	path = vim/bundle/rooter
+	url = https://github.com/airblade/vim-rooter.git
+[submodule "vim/bundle/snippet-nodejs"]
+	path = vim/bundle/snippet-nodejs
+	url = https://github.com/jamescarr/snipmate-nodejs.git
+[submodule "vim/bundle/snipmate-garbas"]
+	path = vim/bundle/snipmate-garbas
+	url = https://github.com/garbas/vim-snipmate.git
+[submodule "vim/bundle/pyflakes-kevinw"]
+	path = vim/bundle/pyflakes-kevinw
+	url = https://github.com/kevinw/pyflakes-vim.git
