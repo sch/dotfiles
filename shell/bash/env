@@ -1,11 +1,14 @@
-
+export PATH=/usr/local/share/python:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=/usr/local/mysql/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
+export PATH=./:$PATH
 
 # Load RVM function' >> ~/.bash_profile
-[[ -s "/Users/adrian/.rvm/scripts/rvm" ]] && source "/Users/adrian/.rvm/scripts/rvm"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+# 'rvm info' for version
+PS1="\$(~/.rvm/bin/rvm-prompt) $PS1"
 
 # node.js nonsense
 export NODE_PATH=/usr/local/lib/node
@@ -15,6 +18,15 @@ export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
 # Set PATH, CDPATH, EDITOR, etc.
 #
 # When setting the path, you use "export PATH=" then the dir
-# 	"export PATH=[dir]:$PATH" will prepend the path with [dir]
-# 	"export PATH=:$PATH:[dir]" will append the path with [dir]
-#
+# "export PATH=[dir]:$PATH" will prepend the path with [dir]
+# "export PATH=:$PATH:[dir]" will append the path with [dir]
+
+
+# startup virtualenv-burrito
+if [ -f $HOME/.venvburrito/startup.sh ]; then
+    . $HOME/.venvburrito/startup.sh
+fi
+
+if [ -f `brew --prefix`/etc/autojump ]; then
+  . `brew --prefix`/etc/autojump
+fi

@@ -5,8 +5,8 @@ set guifont=Inconsolata-dz:h14    " Font family and font size.
 set antialias                     " MacVim: smooth fonts.
 set encoding=utf-8                " Use UTF-8 everywhere.
 set guioptions-=T                 " Hide toolbar.
-set background=light              " Background.
-set lines=55 columns=100          " Window dimensions.
+set background=dark               " Background.
+set lines=55 columns=85           " Window dimensions.
 
 colorscheme solarized
 
@@ -15,25 +15,15 @@ set guioptions-=R
 set guioptions-=l                 " ...or the left one
 set guioptions-=L
 
-" expand window in fullscreen 
+" expand window in fullscreen
 set fuoptions=maxvert,maxhorz
 
-map <D-1> :CommandT<CR>
+map <D-j> <C-f>
+map <D-k> <C-b>
 
 " command-t file browser
 if has("gui_macvim")
   macmenu &File.New\ Tab key=<nop>
   map <D-t> :CommandT<CR>
 endif
-
-" command-; for : 
-"if has("gui_macvim")
-"    macmenu &File.New\ Tab key=<nop>
-"    map <D-o>l<CR>
-"endif
-
-" command-1 for bufferexplorer: 
-"if has("gui_macvim")
-"    map <D-1>:NERDTree<CR>
-"endif
 

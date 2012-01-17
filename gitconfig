@@ -3,5 +3,6 @@
 	email = schaedles@gmail.com
 [github]
 	user = sch
+	token = ab82845f01dffc3a0900309555e8a2df
 [core]
 	autocrlf = input

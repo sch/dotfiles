@@ -1,5 +1,10 @@
+# cd aliases
+setopt auto_cd
+cdpath=($HOME/Dropbox/Code/ruby/sinatra/wccs $HOME/Dropbox/Code/Classes/ps )
+
 autoload -U colors
 colors
+
 setopt prompt_subst
 PROMPT='
 %~ %{$fg_bold[black]%}$(vcprompt)
