@@ -3,7 +3,6 @@ export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=/usr/local/mysql/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
-export PATH=./:$PATH
 
 # Load RVM function' >> ~/.bash_profile
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
@@ -11,7 +10,7 @@ export PATH=./:$PATH
 PS1="\$(~/.rvm/bin/rvm-prompt) $PS1"
 
 # node.js nonsense
-export NODE_PATH=/usr/local/lib/node
+export NODE_PATH=/usr/local/lib/node_modules
 
 export EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim'
 

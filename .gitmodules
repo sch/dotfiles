@@ -37,3 +37,9 @@
 [submodule "vim/bundle/mustache"]
 	path = vim/bundle/mustache
 	url = git://github.com/juvenn/mustache.vim.git
+[submodule "vim/bundle/ctrlp"]
+	path = vim/bundle/ctrlp
+	url = https://github.com/kien/ctrlp.vim.git
+[submodule "vim/bundle/a-vim-with-coffeescript"]
+	path = vim/bundle/a-vim-with-coffeescript
+	url = https://github.com/clvv/a.vim.git

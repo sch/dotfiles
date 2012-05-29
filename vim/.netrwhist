@@ -1,9 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/adrian/Dropbox/Code/ruby/sinatra/wccs'
-let g:netrw_dirhist_2='/Users/sch/Downloads/musique'
-let g:netrw_dirhist_3='/Users/sch/Downloads/jquery.ioslist'
-let g:netrw_dirhist_4='/Users/Adrian/Dropbox/father-son shared folder/4-fortran-cg'
-let g:netrw_dirhist_5='/Users/Adrian/Dropbox/Code/Classes/ps/5-java/samples/cube2'
-let g:netrw_dirhist_6='/Users/sch/Dropbox/Code/greatcode/102658076_quickdraw_acc'
-let g:netrw_dirhist_7='/Users/sch/Downloads/designbyfront-The-Goldilocks-Approach-1b0afd2'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/Users/sch/Dropbox/Code/meteor/lb'

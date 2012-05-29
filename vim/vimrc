@@ -72,10 +72,11 @@ set expandtab                     " Use spaces instead of tabs
 set showmatch                     " set show matching parenthesis
 set smarttab                      " insert tabs on the start of a line according to shiftwidth, not tabstop
 
+autocmd FileType asm setlocal ts=4 sts=0 sw=0 noexpandtab
 autocmd FileType html,css,scss,ruby,pml,yaml,coffee,vim setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType python,javascript setlocal ts=4 sts=4 sw=4 noexpandtab
 autocmd BufNewFile,BufRead Rakefile,Capfile,Gemfile,Termfile,config.ru setfiletype ruby
-autocmd FileType ruby :Abolish -buffer initialise initialize
+" autocmd FileType ruby :Abolish -buffer initialise initialize
 
 let mapleader = ","                "easier leader
 " Speed up buffer switching
@@ -147,6 +148,9 @@ nnoremap <leader>w <C-w>v<C-w>l
 
 " Escape normal mode quicker
 inoremap jj <ESC>
+
+" set ctrlP's working directory to a git root
+let g:ctrlp_working_path_mode = 2
 
 " Controversial...swap colon and semicolon for easier commands
 nnoremap ; :
