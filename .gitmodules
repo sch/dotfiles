@@ -43,3 +43,18 @@
 [submodule "vim/bundle/a-vim-with-coffeescript"]
 	path = vim/bundle/a-vim-with-coffeescript
 	url = https://github.com/clvv/a.vim.git
+[submodule "vim/bundle/vim-less"]
+	path = vim/bundle/vim-less
+	url = https://github.com/groenewege/vim-less.git
+[submodule "vim/bundle/supertab"]
+	path = vim/bundle/supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "vim/bundle/tpope-vim-ragtag"]
+	path = vim/bundle/tpope-vim-ragtag
+	url = https://github.com/tpope/vim-ragtag.git
+[submodule "vim/bundle/tvim-surround"]
+	path = vim/bundle/tvim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "vim/bundle/vim-coffee-script"]
+	path = vim/bundle/vim-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script.git

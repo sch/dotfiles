@@ -104,6 +104,10 @@ imap <C-a> <C-o>I
 nnoremap j gj
 nnoremap k gk
 
+" relative line numbers for focused text
+au FocusLost * :set number
+au FocusGained * :set relativenumber
+
 " tab -> nearest enclosure
 nmap <tab> %
 vmap <tab> %
