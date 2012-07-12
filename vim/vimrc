@@ -135,7 +135,7 @@ vmap Q gq
 nmap Q gqap
 
 " nerd tree shortcut
-nnoremap <leader>, :NERDTreeToggle<cr>
+nnoremap <leader>. :NERDTreeToggle<cr>
 
 " bufexplorer shortcut
 nnoremap <return> :BufExplorer<cr>
