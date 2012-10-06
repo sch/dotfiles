@@ -38,6 +38,8 @@ set smartcase                     " But case-sensitive if expression contains a 
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
 
+set grepprg=ack\ -a
+
 set number                        " Show line numbers.
 " set relativenumber                " Show distance away from current line
 set ruler                         " Show cursor position.

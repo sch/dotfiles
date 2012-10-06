@@ -13,9 +13,21 @@
 [submodule "vim/bundle/snippet-nodejs"]
 	path = vim/bundle/snippet-nodejs
 	url = https://github.com/jamescarr/snipmate-nodejs.git
+
+# Snipmate
 [submodule "vim/bundle/snipmate-garbas"]
 	path = vim/bundle/snipmate-garbas
 	url = https://github.com/garbas/vim-snipmate.git
+[submodule "vim/bundle/vim-addon-mw-utils"]
+	path = vim/bundle/vim-addon-mw-utils
+	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule "vim/bundle/tlib"]
+	path = vim/bundle/tlib
+	url = https://github.com/vim-scripts/tlib.git
+[submodule "vim/bundle/snipmate-snippets"]
+	path = vim/bundle/snipmate-snippets
+	url = https://github.com/honza/snipmate-snippets.git
+
 [submodule "vim/bundle/pyflakes-kevinw"]
 	path = vim/bundle/pyflakes-kevinw
 	url = https://github.com/kevinw/pyflakes-vim.git
@@ -64,12 +76,6 @@
 [submodule "vim/bundle/autoclose"]
 	path = vim/bundle/autoclose
 	url = https://github.com/andrewle/vim-autoclose.git
-[submodule "vim/bundle/vim-addon-mw-utils"]
-	path = vim/bundle/vim-addon-mw-utils
-	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
-[submodule "vim/bundle/tlib"]
-	path = vim/bundle/tlib
-	url = https://github.com/vim-scripts/tlib.git
 [submodule "vim/bundle/tcomment"]
 	path = vim/bundle/tcomment
 	url = https://github.com/tomtom/tcomment_vim.git
