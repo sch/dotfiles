@@ -1,3 +1,4 @@
+export PATH=~/.cabal/bin:$PATH
 export PATH=/Applications/MAMP/bin/php/php5.2.17/bin:$PATH
 export PATH=/Applications/MAMP/Library/bin:$PATH
 export PATH=/usr/local/share/python:$PATH
@@ -13,6 +14,10 @@ PS1="\$(~/.rvm/bin/rvm-prompt) $PS1"
 
 # node.js nonsense
 export NODE_PATH=/usr/local/lib/node_modules
+
+# Cabal path: installed Haskell executables
+
+# export GOBIN=/usr/local/Cellar/go/1.0.3/bin
 
 export EDITOR='/usr/local/bin/mvim -v'
 

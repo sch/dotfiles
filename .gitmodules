@@ -82,3 +82,9 @@
 [submodule "vim/bundle/golang"]
 	path = vim/bundle/golang
 	url = https://github.com/jnwhiteh/vim-golang.git
+[submodule "vim/bundle/vim-powerline"]
+	path = vim/bundle/vim-powerline
+	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule "vim/bundle/vim-haskell"]
+	path = vim/bundle/vim-haskell
+	url = https://github.com/wlangstroth/vim-haskell.git
