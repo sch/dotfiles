@@ -88,3 +88,6 @@
 [submodule "vim/bundle/vim-haskell"]
 	path = vim/bundle/vim-haskell
 	url = https://github.com/wlangstroth/vim-haskell.git
+[submodule "vim/bundle/html-template-syntax-yesod"]
+	path = vim/bundle/html-template-syntax-yesod
+	url = https://github.com/pbrisbin/html-template-syntax.git

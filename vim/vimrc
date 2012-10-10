@@ -58,6 +58,8 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*Cap
 " colorscheme solarized
 " set background=dark
 set visualbell t_vb=              " No beeping
+set t_Co=256                      " Explicitly tell Vim that the terminal supports 256 colors
+
 
 set list
 set listchars=tab:▸\ ,eol:¬
@@ -127,6 +129,17 @@ autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
 
 " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
 " autocmd BufNewFile,BufRead *_spec.rb compiler rspec
+"
+
+""""""""""""""""""""
+" POWERLINE SETTINGS
+""""""""""""""""""""
+" let g:Powerline_symbols = 'unicode'
+let g:Powerline_theme = 'skwp'
+let g:Powerline_colorscheme = 'skwp'
+
+"""""" END POWERLINE 
+""""""""""""""""""""
 
 " Bubble single lines
 nmap <C-Up> ddkP

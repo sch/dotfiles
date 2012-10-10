@@ -1,4 +1,3 @@
-export PATH=~/.cabal/bin:$PATH
 export PATH=/Applications/MAMP/bin/php/php5.2.17/bin:$PATH
 export PATH=/Applications/MAMP/Library/bin:$PATH
 export PATH=/usr/local/share/python:$PATH
@@ -6,6 +5,7 @@ export PATH=/usr/local/share/npm/bin:$PATH
 # export PATH=/usr/local/mysql/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=/usr/local/bin:$PATH
+export PATH=/Users/sch/.cabal/bin:$PATH
 
 # Load RVM function' >> ~/.bash_profile
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
