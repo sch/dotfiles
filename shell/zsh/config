@@ -1,6 +1,5 @@
 # cd aliases
 setopt auto_cd
-cdpath=($HOME/Dropbox/Code/ruby/sinatra/wccs $HOME/Dropbox/Code/Classes/ps )
 
 autoload -U colors
 colors
@@ -8,7 +7,7 @@ colors
 setopt prompt_subst
 PROMPT='
 %~ %{$fg_bold[black]%}$(vcprompt)
-→ %{$reset_color%}'
+↪ %{$reset_color%}'
 
 # Set RPROMPT to have info show up on the right, too.
 

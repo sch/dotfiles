@@ -2,6 +2,3 @@
 . ~/Dropbox/dotfiles/shell/zsh/config
 . ~/Dropbox/dotfiles/shell/zsh/aliases
 
-
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

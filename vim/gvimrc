@@ -1,14 +1,15 @@
 " gvim config
 " Copy to ~/.gvimrc or ~/_gvimrc.
 
-set guifont=Inconsolata-dz:h14    " Font family and font size.
-set antialias                     " MacVim: smooth fonts.
+set guifont=Monaco:h12    " Font family and font size.
+" set guifont=Inconsolata-dz:h14    " Font family and font size.
+set noantialias                     " MacVim: smooth fonts.
 set encoding=utf-8                " Use UTF-8 everywhere.
 set guioptions-=T                 " Hide toolbar.
 set background=dark               " Background.
 set lines=55 columns=85           " Window dimensions.
 
-colorscheme solarized
+colorscheme distinguished
 
 set guioptions-=r                 " Don't show right scrollbar
 set guioptions-=R
@@ -20,10 +21,4 @@ set fuoptions=maxvert,maxhorz
 
 map <D-j> <C-f>
 map <D-k> <C-b>
-
-" command-t file browser
-if has("gui_macvim")
-  macmenu &File.New\ Tab key=<nop>
-  map <D-t> :CommandT<CR>
-endif
 

@@ -1,23 +1,16 @@
-export PATH=/Applications/MAMP/bin/php/php5.2.17/bin:$PATH
-export PATH=/Applications/MAMP/Library/bin:$PATH
-export PATH=/usr/local/share/python:$PATH
-export PATH=/usr/local/share/npm/bin:$PATH
-# export PATH=/usr/local/mysql/bin:$PATH
+# rbenv
+eval "$(rbenv init -)"
+
+# export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH=/usr/local/sbin:$PATH
+export PATH=/usr/local/php5/bin:$PATH
+# export PATH=/usr/local/share/python:$PATH
+export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/Users/sch/.cabal/bin:$PATH
 
-# Load RVM function' >> ~/.bash_profile
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-# 'rvm info' for version
-PS1="\$(~/.rvm/bin/rvm-prompt) $PS1"
-
 # node.js nonsense
 export NODE_PATH=/usr/local/lib/node_modules
-
-# Cabal path: installed Haskell executables
-
-# export GOBIN=/usr/local/Cellar/go/1.0.3/bin
 
 export EDITOR='/usr/local/bin/mvim -v'
 
@@ -36,3 +29,4 @@ fi
 if [ -f `brew --prefix`/etc/autojump ]; then
   . `brew --prefix`/etc/autojump
 fi
+

@@ -2,10 +2,10 @@
 
 # Utility
 alias reload='source ~/Dropbox/dotfiles/shell/bash/aliases'
-alias ea='mate -w ~/Dropbox/dotfiles/shell/bash/aliases && reload' # Edit aliases
-alias ee='mate ~/Dropbox/dotfiles/shell/bash/env'
+alias ea='vim ~/Dropbox/dotfiles/shell/bash/aliases && reload' # Edit aliases
+alias ee='vim ~/Dropbox/dotfiles/shell/bash/env'
 alias commands='less ~/Dropbox/dotfiles/shell/bash/aliases'
-alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+alias vim='mvim -v'
 # alias fullpath='echo $PATH | tr \':\' \'\n\''
 
 # Quicker cd
@@ -237,6 +237,13 @@ function serve(){
     open http://localhost:8080/
 }
 
+# Print path, one line at a time
+# http://www.cyberciti.biz/faq/howto-print-path-variable/
+path (){
+  local IFS=:
+  eval printf "%s\\\n" \$${1:-PATH}
+}
+
 # DIGITAL BUNGALOW
 
 # 
@@ -244,6 +251,7 @@ function serve(){
 #
 function import_mwb_database(){
   local db_path='~/db/databases/'
+  echo -e db_path
   local date=`date +%Y-%m-%d`
   echo -e "Downloading mwb database...\n"
   scp digitalb@ded-1329.prod.hosting.acquia.com:/mnt/gfs/digitalb/backups/prod-digitalb-digitalb-${date}.sql.gz ${db_path}mwb_database-${date}.sql.gz
@@ -263,4 +271,32 @@ function import_mwb_files(){
   echo -e "Import complete!\n"
 }
 
-alias gittag="git tag -a `date '+%Y-%m-%d.%H-%M'` --message && git push --tags"
+function gittag(){
+  local date=`date +%Y-%m-%d.%H-%M`
+  git tag -a ${date} -m $1
+  git push --tags
+}
+
+alias aqprodsql='ssh -t aqprod "cd /var/www/html/digitalb.prod/docroot/sites/default ; mysql -udigitalb -prfcNKrF9cZyMNGo digitalb ; bash"'
+
+alias aqdevsql='ssh -t aqdev "cd /var/www/html/digitalbdev/docroot/sites/default ; mysql -udigitalbdev -pRALTQYCFcP55WV6 digitalbdev ; bash"'
+
+alias aqstagesql='ssh -t aqdev "cd /var/www/html/digitalbdev/docroot/sites/default ; mysql -udigitalbstg -pS7aEiB6ScitLTBS digitalbstg ; bash"'
+
+alias dev='git checkout dev && git pull origin dev'
+alias stage='git checkout stage && git pull origin stage'
+
+#push branch to either dev stage master
+##first @param must be your branch name and every @param after, will be either
+#dev stage master
+function push(){
+  arg_count=$#
+  local count=2
+  while [ $count -le $arg_count ]
+    do
+      git checkout ${!count}
+      git pull origin ${!count}
+      git merge $1
+      git push origin ${!count} count=$((count+1))
+  done
+}
