@@ -46,7 +46,9 @@
     "xctool"
   ],
   "taps": [
-    "caskroom/cask",
-    "railwaycat/emacsmacport"
-  ]
+    "caskroom/cask"
+  ],
+  "symlinks": {
+    "emacs/spacemacs": "~/.spacemacs"
+  }
 }
