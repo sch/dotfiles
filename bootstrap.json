@@ -60,7 +60,8 @@
     "bin/*": "~/bin/",
     "emacs/spacemacs": "~/.spacemacs",
     "git/.*": "~",
-    "mutt/muttrc": "~/.muttrc"
+    "mutt/muttrc": "~/.muttrc",
+    "tmux/tmux.conf": "~/.tmux.conf"
   },
   "taps": [
     "caskroom/cask",
