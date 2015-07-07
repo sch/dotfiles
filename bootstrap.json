@@ -4,16 +4,22 @@
     "apm stars --install"
   ],
   "casks": [
+    "1password",
+    "anvil",
     "atom",
     "calibre",
+    "day-o",
     "dropbox",
     "firefox",
+    "fluid",
     "github",
     "google-chrome",
     "haskell-platform",
     "intellij-idea-ce",
     "openemu",
-    "racket"
+    "racket",
+    "satellite-eyes",
+    "the-unarchiver"
   ],
   "formulas": [
     "autojump",
