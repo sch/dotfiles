@@ -58,7 +58,8 @@
   "symlinks": {
     "atom/*": "~/.atom/.atom/",
     "bin/*": "~/bin/",
-    "emacs/spacemacs": "~/.spacemacs"
+    "emacs/spacemacs": "~/.spacemacs",
+    "git/.*": "~"
   },
   "taps": [
     "caskroom/cask",
