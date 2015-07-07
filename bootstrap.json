@@ -59,7 +59,8 @@
     "atom/*": "~/.atom/.atom/",
     "bin/*": "~/bin/",
     "emacs/spacemacs": "~/.spacemacs",
-    "git/.*": "~"
+    "git/.*": "~",
+    "mutt/muttrc": "~/.muttrc"
   },
   "taps": [
     "caskroom/cask",
