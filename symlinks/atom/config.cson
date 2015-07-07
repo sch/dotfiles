@@ -1,0 +1,32 @@
+"*":
+  "exception-reporting":
+    userId: "2ebffde6-515d-ac36-0cda-60ed3865a62a"
+  "release-notes":
+    viewedVersion: "0.95.0"
+  welcome:
+    showOnStartup: false
+  metrics:
+    userId: "02d6477dbc6f82995db20f26edb928127c52f989"
+  editor:
+    fontFamily: "\"Inconsolata LGC\", Menlo, Inconsolata, Monaco, fixed-width"
+    softWrap: true
+    scrollPastEnd: true
+    useShadowDOM: true
+    invisibles: {}
+    fontSize: 20
+  core:
+    disabledPackages: [
+      "linter-write-good"
+      "merge-conflicts"
+      "linter-jscs"
+      "linter"
+    ]
+    themes: [
+      "unity-ui"
+      "base16-tomorrow-light-theme"
+    ]
+    projectHome: "~/Dropbox/Code"
+  "vim-mode":
+    useSmartcaseForSearch: true
+  linter: {}
+  react: {}

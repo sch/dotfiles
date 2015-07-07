@@ -1,8 +1,10 @@
 {
   "after-scripts": [
-    "brew linkapps"
+    "brew linkapps",
+    "apm stars --install"
   ],
   "casks": [
+    "atom",
     "calibre",
     "dropbox",
     "firefox",
@@ -48,6 +50,7 @@
     "xctool"
   ],
   "symlinks": {
+    "atom/*": "~/.atom/.atom/",
     "bin/*": "~/bin/",
     "emacs/spacemacs": "~/.spacemacs"
   },
