@@ -49,6 +49,7 @@
     "caskroom/cask"
   ],
   "symlinks": {
+    "bin/*": "~/bin/",
     "emacs/spacemacs": "~/.spacemacs"
   }
 }
