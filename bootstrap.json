@@ -1,0 +1,52 @@
+{
+  "after-scripts": [
+    "brew linkapps"
+  ],
+  "casks": [
+    "calibre",
+    "dropbox",
+    "firefox",
+    "github",
+    "google-chrome",
+    "haskell-platform",
+    "intellij-idea-ce",
+    "openemu",
+    "racket"
+  ],
+  "formulas": [
+    "autojump",
+    "boot2docker",
+    "brew-cask",
+    "camlistore",
+    "direnv",
+    "emacs",
+    "emacs-mac",
+    "erlang",
+    "fig",
+    "fish",
+    "ghc",
+    "git",
+    "go",
+    "guile",
+    "hub",
+    "jq",
+    "leiningen",
+    "macvim --overwrite-system-vi",
+    "node",
+    "npm",
+    "pup",
+    "python",
+    "python3",
+    "selecta",
+    "shellcheck",
+    "stow",
+    "trash",
+    "tree",
+    "webkit2png",
+    "xctool"
+  ],
+  "taps": [
+    "caskroom/cask",
+    "railwaycat/emacsmacport"
+  ]
+}
