@@ -60,6 +60,8 @@
     "atom/*": "~/.atom/.atom/",
     "bin/*": "~/bin/",
     "emacs/spacemacs": "~/.spacemacs",
+    "fish/*.fish": "~/.config/fish/",
+    "fish/functions/*": "~/.config/fish/functions/",
     "git/.*": "~",
     "mutt/muttrc": "~/.muttrc",
     "tmux/tmux.conf": "~/.tmux.conf",
