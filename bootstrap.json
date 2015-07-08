@@ -12,6 +12,7 @@
     "dropbox",
     "firefox",
     "fluid",
+    "font-inconsolata-lgc",
     "github",
     "google-chrome",
     "haskell-platform",
@@ -67,6 +68,7 @@
   },
   "taps": [
     "caskroom/cask",
+    "caskroom/fonts",
     "homebrew/services",
     "railwaycat/emacsmacport"
   ]
