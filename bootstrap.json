@@ -61,7 +61,9 @@
     "emacs/spacemacs": "~/.spacemacs",
     "git/.*": "~",
     "mutt/muttrc": "~/.muttrc",
-    "tmux/tmux.conf": "~/.tmux.conf"
+    "tmux/tmux.conf": "~/.tmux.conf",
+    "vim/vim": "~/.vim",
+    "vim/vimrc": "~/.vimrc"
   },
   "taps": [
     "caskroom/cask",

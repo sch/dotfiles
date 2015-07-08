@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/sch/harvard-medical-school/hmsexternaleducationt'
+let g:netrw_dirhist_2='/Users/sch/buckets'
+let g:netrw_dirhist_3='/Users/sch/.boot2docker'
+let g:netrw_dirhist_4='/Users/sch/nerdwallet/chef-repo'
+let g:netrw_dirhist_5='/Users/sch/Dropbox/Websites/sch.github.com/.git'
