@@ -58,6 +58,7 @@
   ],
   "symlinks": {
     "atom/*": "~/.atom/.atom/",
+    "bash/.*": "~",
     "bin/*": "~/bin/",
     "emacs/spacemacs": "~/.spacemacs",
     "fish/*.fish": "~/.config/fish/",
