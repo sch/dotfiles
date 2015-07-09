@@ -1,1 +1,52 @@
-/Users/sch/Dropbox/dotfiles/gitconfig
+[user]
+	name = Adrian Schaedle
+	email = adrian@schaedle.me
+
+[alias]
+	amend = commit --amend
+	fa = fetch --all
+	pom = push origin master
+	last-commit = rev-parse HEAD
+	delete-merged = !git branch --merged | grep -v \"\\*\" | xargs -n 1 git branch -d
+	copy-head = !git rev-parse --short HEAD | pbcopy
+
+[color]
+	ui = true
+
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+	tool = Kaleidoscope
+	algorithm = patience
+[difftool]
+	prompt = false
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[mergetool]
+	prompt = false
+[merge]
+	tool = Kaleidoscope
+
+[core]
+	excludesfile = /opt/boxen/config/git/gitignore
+	filemode = false
+	trustctime = false
+	autocrlf = input
+	safecrlf = false
+	editor = /usr/local/bin/vim
+
+[pull]
+	rebase = true
+
+[push]
+	default = current
+
+[rerere]
+	enabled = true
+
+[help]
+  autocorrect = 1
+
+[hub]
+protocol = https
