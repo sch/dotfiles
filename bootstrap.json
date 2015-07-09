@@ -41,7 +41,6 @@
     "hub",
     "jq",
     "leiningen",
-    "macvim --overwrite-system-vi",
     "node",
     "npm",
     "pup",
@@ -54,6 +53,7 @@
     "tree",
     "watchman",
     "webkit2png",
+    "vim",
     "xctool"
   ],
   "symlinks": {
