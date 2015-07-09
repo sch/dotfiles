@@ -66,8 +66,7 @@
     "git/.*": "~",
     "mutt/muttrc": "~/.muttrc",
     "tmux/tmux.conf": "~/.tmux.conf",
-    "vim/vim": "~/.vim",
-    "vim/vimrc": "~/.vimrc"
+    "vim/.*": "~"
   },
   "taps": [
     "caskroom/cask",
