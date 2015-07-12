@@ -28,6 +28,7 @@
     "boot2docker",
     "brew-cask",
     "camlistore",
+    "chruby",
     "direnv",
     "emacs",
     "emacs-mac",
@@ -45,13 +46,14 @@
     "pup",
     "python",
     "python3",
+    "ruby-build",
     "selecta",
     "stow",
     "trash",
     "tree",
+    "vim",
     "watchman",
     "webkit2png",
-    "vim",
     "xctool"
   ],
   "symlinks": {
@@ -63,6 +65,7 @@
     "fish/functions/*": "~/.config/fish/functions/",
     "git/.*": "~",
     "mutt/muttrc": "~/.muttrc",
+    "ruby/.*": "~",
     "tmux/tmux.conf": "~/.tmux.conf",
     "vim/.*": "~"
   },
