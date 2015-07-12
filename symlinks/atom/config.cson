@@ -30,3 +30,4 @@
     useSmartcaseForSearch: true
   linter: {}
   react: {}
+  "atom-ternjs": {}
