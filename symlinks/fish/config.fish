@@ -7,7 +7,8 @@ source ~/.config/fish/j.fish
 source /usr/local/share/chruby/chruby.fish
 source /usr/local/share/chruby/auto.fish
 
-# Git
+alias cl 'clear; ls -lah'
+
 alias g 'git status'
 alias gg 'git commit -am'
 
