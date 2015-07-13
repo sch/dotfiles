@@ -18,10 +18,13 @@
     "haskell-platform",
     "intellij-idea-ce",
     "java",
+    "karabiner",
     "openemu",
     "racket",
     "satellite-eyes",
-    "the-unarchiver"
+    "spotify",
+    "the-unarchiver",
+    "virtualbox"
   ],
   "formulas": [
     "autojump",
