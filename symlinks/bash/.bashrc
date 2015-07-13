@@ -9,6 +9,7 @@ export PATH="/usr/local/opt/go/libexec/bin:$PATH"
 export PATH="~/.bin:$PATH"
 
 source /usr/local/opt/chruby/share/chruby/chruby.sh
+source /usr/local/opt/chruby/share/chruby/auto.sh
 
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
