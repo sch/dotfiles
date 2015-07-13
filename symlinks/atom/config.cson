@@ -13,7 +13,6 @@
     scrollPastEnd: true
     useShadowDOM: true
     invisibles: {}
-    fontSize: 20
   core:
     disabledPackages: [
       "linter-write-good"
@@ -23,7 +22,7 @@
     ]
     themes: [
       "unity-ui"
-      "base16-tomorrow-light-theme"
+      "github-2014"
     ]
     projectHome: "~/Dropbox/Code"
   "vim-mode":
