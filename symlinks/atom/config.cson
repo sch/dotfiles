@@ -30,3 +30,7 @@
   linter: {}
   react: {}
   "atom-ternjs": {}
+  "tree-view":
+    hideIgnoredNames: true
+  tabs:
+    usePreviewTabs: true
