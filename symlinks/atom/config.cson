@@ -13,6 +13,7 @@
     scrollPastEnd: true
     useShadowDOM: true
     invisibles: {}
+    fontSize: 15
   core:
     disabledPackages: [
       "linter-write-good"
