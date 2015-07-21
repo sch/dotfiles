@@ -13,6 +13,10 @@ source /usr/local/opt/chruby/share/chruby/auto.sh
 
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  source $(brew --prefix)/etc/bash_completion
+fi
+
 # Utility
 alias reload='source ~/.bashrc'
 alias edit-config='vim ~/.bashrc && reload' # Edit aliases
@@ -32,7 +36,11 @@ alias l='ls -lhGt'  # -l long listing, most recent first
 alias lh="ls -lh"
 alias ll='ls -lhG'  # -l long listing, human readable, no group info
 alias lt='ls -lt'   # sort with recently modified first
+
+alias repos='tree -L 2 ~/github'
+
 alias md='mkdir -p'
+
 alias s='cd ..'     # up one dir
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -186,7 +194,3 @@ function gittag(){
   git tag -a ${date} -m $1
   git push --tags
 }
-
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi
