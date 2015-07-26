@@ -63,7 +63,8 @@
         "vim",
         "watchman",
         "webkit2png",
-        "xctool"
+        "xctool",
+        "youtube-dl"
     ],
     "symlinks": {
         "atom/*": "~/.atom/",
