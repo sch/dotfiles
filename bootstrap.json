@@ -10,6 +10,7 @@
         "calibre",
         "charles",
         "day-o",
+        "dockertoolbox",
         "dropbox",
         "elm-platform",
         "firefox",
@@ -31,7 +32,6 @@
     ],
     "formulas": [
         "autojump",
-        "boot2docker",
         "brew-cask",
         "camlistore",
         "chruby",
@@ -39,7 +39,6 @@
         "direnv",
         "emacs-mac",
         "erlang",
-        "fig",
         "fish",
         "git",
         "gnu-typist",
