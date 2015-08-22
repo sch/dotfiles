@@ -17,6 +17,8 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   source $(brew --prefix)/etc/bash_completion
 fi
 
+eval "$(direnv hook bash)" # Must come last
+
 # Utility
 alias reload='source ~/.bashrc'
 alias edit-config='vim ~/.bashrc && reload' # Edit aliases

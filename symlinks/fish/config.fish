@@ -6,6 +6,7 @@
 source ~/.config/fish/j.fish
 source /usr/local/share/chruby/chruby.fish
 source /usr/local/share/chruby/auto.fish
+eval (direnv hook fish)
 
 alias cl 'clear; ls -lah'
 
