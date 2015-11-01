@@ -19,10 +19,9 @@
       "linter-write-good"
       "merge-conflicts"
       "linter-jscs"
-      "linter"
     ]
     themes: [
-      "unity-ui"
+      "one-light-ui"
       "github-2014"
     ]
     projectHome: "~/Dropbox/Code"
@@ -35,3 +34,4 @@
     hideIgnoredNames: true
   tabs:
     usePreviewTabs: true
+  "language-elm": {}

@@ -10,7 +10,7 @@
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
-   dotspacemacs-configuration-layers '(clojure javascript markdown python)
+   dotspacemacs-configuration-layers '(clojure dash javascript markdown python)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -145,7 +145,7 @@ layers configuration."
  '(ahs-inhibit-face-list nil)
  '(custom-safe-themes
    (quote
-    ("4dd1b115bc46c0f998e4526a3b546985ebd35685de09bc4c84297971c822750e" default)))
+    ("c0dd384b870de1c769d37fec8f9ff22f191b1eba7a49b1181d361e7a3c4713f0" "4dd1b115bc46c0f998e4526a3b546985ebd35685de09bc4c84297971c822750e" default)))
  '(ring-bell-function (quote ignore) t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

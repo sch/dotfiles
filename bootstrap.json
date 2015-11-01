@@ -15,7 +15,9 @@
         "elm-platform",
         "firefox",
         "fluid",
+        "font-hasklig",
         "font-inconsolata-lgc",
+        "font-office-code-pro",
         "google-chrome",
         "haskell-platform",
         "intellij-idea-ce",
@@ -24,11 +26,13 @@
         "notational-velocity",
         "openemu",
         "racket",
+        "recordit",
         "satellite-eyes",
         "spotify",
         "the-unarchiver",
         "virtualbox",
-        "vlc"
+        "vlc",
+        "xscreensaver"
     ],
     "formulas": [
         "autojump",
@@ -69,7 +73,7 @@
     "symlinks": {
         "atom/*": "~/.atom/",
         "bash/.*": "~",
-        "bin/*": "~/bin/",
+        "bin/*": "~/.bin/",
         "emacs/spacemacs": "~/.spacemacs",
         "fish/*.fish": "~/.config/fish/",
         "fish/functions/*": "~/.config/fish/functions/",
