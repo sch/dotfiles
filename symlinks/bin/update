@@ -3,4 +3,4 @@ set -eu
 
 softwareupdate --install --all
 brew update && brew upgrade --all && brew cleanup
-vim +PluginInstall +qall
+vim +PluginInstall! +qall

@@ -64,6 +64,10 @@ Plugin 'marijnh/tern_for_vim'
 " Plugin 'Valloric/YouCompleteMe'
 " </completion>
 
+" <repls>
+Plugin 'tpope/vim-fireplace'
+" </repls>
+
 " Plugin 'airblade/vim-gitgutter'
 " Plugin 'ludovicPelle/vim-xdebug'
 Plugin 'majutsushi/tagbar'
