@@ -17,6 +17,11 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   source $(brew --prefix)/etc/bash_completion
 fi
 
+eval "$(docker-machine env docker-vm)"
+
+VCPROMPT_FORMAT='[%b:%r]'
+PS1="\W \$(vcprompt) ● "
+
 eval "$(direnv hook bash)" # Must come last
 
 # Utility

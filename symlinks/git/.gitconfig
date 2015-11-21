@@ -8,6 +8,9 @@
 	pom = push origin master
 	last-commit = rev-parse HEAD
 	delete-merged = !git branch --merged | grep -v \"\\*\" | xargs -n 1 git branch -d
+	feature-branches = !git branch | grep feature
+	chore-branches = !git branch | grep chore
+	bugfix-branches = !git branch | grep bugfix
 	copy-head = !git rev-parse --short HEAD | pbcopy
 
 [color]

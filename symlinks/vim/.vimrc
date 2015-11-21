@@ -72,7 +72,7 @@ Plugin 'tpope/vim-fireplace'
 " Plugin 'ludovicPelle/vim-xdebug'
 Plugin 'majutsushi/tagbar'
 " Plugin 'pbrisbin/html-template-syntax'
-" Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 " Plugin 'tomtom/tcomment_vim'
 Plugin 'airblade/vim-rooter'
 Plugin 'bclear'
@@ -96,6 +96,9 @@ Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
 
 Plugin 'godlygeek/csapprox'
+Plugin 'junegunn/goyo.vim'
+Plugin 'junegunn/limelight.vim'
+
 " <colorschemes>
 " Plugin '29decibel/codeschool-vim-theme'
 " Plugin 'Lokaltog/vim-distinguished'
@@ -182,6 +185,16 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLo
 set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+
+" Syntastic configuration
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_auto_jump=1 " Let Syntastic jump to bad lines on save
+let g:syntastic_javascript_checkers = ["eslint"]
+
 
 " set the colorscheme
 colorscheme Tomorrow-Night
@@ -377,9 +390,6 @@ let g:javascript_conceal = 1
 " <python> ------------------------------------------------------------------------
 let g:jedi#use_tabs_not_buffers = 0
 " </python>
-
-" Let Syntastic jump to bad lines on save
-let g:syntastic_auto_jump=1
 
 " View the current project's readme
 " command Readme execute '!nd README.md'
