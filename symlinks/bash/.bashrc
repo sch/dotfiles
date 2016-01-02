@@ -20,7 +20,7 @@ fi
 eval "$(docker-machine env docker-vm)"
 
 VCPROMPT_FORMAT='[%b:%r]'
-PS1="\W \$(vcprompt) ● "
+PS1="\W \$(vcprompt)● "
 
 eval "$(direnv hook bash)" # Must come last
 
