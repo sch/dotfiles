@@ -55,6 +55,7 @@
         "leiningen",
         "node",
         "npm",
+        "pow",
         "pup",
         "python",
         "python3",
@@ -81,6 +82,7 @@
         "fish/functions/*": "~/.config/fish/functions/",
         "git/.*": "~",
         "mutt/muttrc": "~/.muttrc",
+        "pow/.*": "~",
         "ruby/.*": "~",
         "tmux/tmux.conf": "~/.tmux.conf",
         "vim/.*": "~"
