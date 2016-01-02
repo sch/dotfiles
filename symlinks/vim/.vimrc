@@ -95,31 +95,9 @@ Plugin 'rizzatti/funcoo.vim'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
 
-Plugin 'godlygeek/csapprox'
+" Plugin 'godlygeek/csapprox'
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
-
-" <colorschemes>
-" Plugin '29decibel/codeschool-vim-theme'
-" Plugin 'Lokaltog/vim-distinguished'
-" Plugin 'altercation/vim-colors-solarized'
-" Plugin 'bruth/vim-newsprint-theme'
-" Plugin 'flazz/vim-colorschemes'
-" Plugin 'github-theme'
-" Plugin 'https://bitbucket.org/kisom/eink.vim.git'
-" Plugin 'jaywilliams/vim-vwilight'
-" Plugin 'jnurmine/Zenburn'
-" Plugin 'matthewtodd/vim-twilight'
-" Plugin 'vim-scripts/darktango.vim'
-" Plugin 'vim-scripts/summerfruit256.vim'
-" Plugin 'vim-scripts/twilight256.vim'
-" Plugin 'zeis/vim-kolor'
-Plugin 'ajh17/Spacegray.vim'
-Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin 'sjl/badwolf'
-Plugin 'vim-scripts/proton'
-Plugin 'vim-scripts/pyte'
-" </colorschemes>
 
 call vundle#end()
 
@@ -172,11 +150,6 @@ set formatoptions=qrn1
 set scrolloff=5                   " Show 5 lines of context around the cursor.
 set ttyfast                       " Faster key commands in terminal Vim.
 
-" Explicitly tell Vim that the terminal supports 256 colors
-if $TERM == "xterm-256color" || $TERM == "screen-256color"
-  set t_Co=256
-endif
-
 set title                         " Set the terminal's title
 set laststatus=2                  " Show the status line all the time
 
@@ -197,8 +170,8 @@ let g:syntastic_javascript_checkers = ["eslint"]
 
 
 " set the colorscheme
-colorscheme Tomorrow-Night
-" set background=dark
+colorscheme terminal
+set background=dark
 set visualbell t_vb=              " No beeping
 
 set list
