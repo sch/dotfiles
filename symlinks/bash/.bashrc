@@ -44,6 +44,7 @@ alias lh="ls -lh"
 alias ll='ls -lhG'  # -l long listing, human readable, no group info
 alias lt='ls -lt'   # sort with recently modified first
 
+alias git='hub'
 alias repos='tree -L 2 ~/github'
 
 alias md='mkdir -p'
