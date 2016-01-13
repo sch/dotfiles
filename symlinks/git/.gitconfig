@@ -6,6 +6,7 @@
 	amend = commit --amend --no-edit
 	last-commit = rev-parse HEAD
 	delete-merged = !git branch --merged | grep -v \"\\*\" | xargs -n 1 git branch -d
+	one-more-thing = !git add . && git amend && git push --force
 	switch = !git branch | cut -c 3- | selecta | xargs git checkout
 	copy-head = !git rev-parse --short HEAD | pbcopy
 
