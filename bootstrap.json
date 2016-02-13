@@ -51,6 +51,7 @@
         "git",
         "gnu-typist",
         "go",
+        "heroku-toolbelt",
         "httpie",
         "hub",
         "jq",
