@@ -27,8 +27,11 @@ PS1="\W \$(vcprompt)● "
 eval "$(direnv hook bash)" # Must come last
 
 # Utility
-alias reload='source ~/.bashrc'
 alias edit-config='vim ~/.bashrc && reload' # Edit aliases
+
+# Resets of various kinds
+alias reload='source ~/.bashrc'
+alias clear-cache-redis='redis-cli -r 1 flushall' # repeat the 'flushall' command once
 
 # Common -- Some are from Damian Conway
 alias a='ls -A' # -A all except literal . ..
