@@ -3,6 +3,7 @@
 	email = adrian@schaedle.me
 
 [alias]
+	aliases = config --get-regexp ^alias\\.
 	amend = commit --amend --no-edit
 	last-commit = rev-parse HEAD
 	staged = diff --staged
