@@ -146,10 +146,16 @@ function new-git() {
 # Emacs
 alias em="open -a Emacs"
 alias emm="open -a Emacs ."
-# Regenerate TAGS file from file arguments
-function ct() {
-  rm -f TAGS
-  etags --append --output=TAGS $*
+
+# Generate a tags file for rails projects
+function rails-ctags() {
+  ctags \
+    --recurse \
+    --languages=ruby \
+    --languages=-javascript \
+    --exclude=.git \
+    --exclude=log \
+    . $(bundle list --paths)
 }
 
 # From http://github.com/suztomo/dotfiles
