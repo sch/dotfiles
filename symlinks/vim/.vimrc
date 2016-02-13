@@ -94,6 +94,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'rizzatti/funcoo.vim'
 Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
+Plugin 'mtth/scratch.vim'
 
 " Plugin 'godlygeek/csapprox'
 Plugin 'junegunn/goyo.vim'
