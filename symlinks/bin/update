@@ -1,6 +1,16 @@
 #!/usr/bin/env bash
 set -eu
 
+echo "==> Updating Apple software"
 softwareupdate --install --all
+
+echo "==> Updating Homebrew packages"
 brew update && brew upgrade --all && brew cleanup
+
+echo "==> Updating NPM"
+npm update -g npm
+
+echo "==> Updating Vim plugins"
 vim +PluginInstall! +qall
+
+echo "==> Done!"
