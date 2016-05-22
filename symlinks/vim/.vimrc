@@ -56,6 +56,7 @@ Plugin 'guns/vim-sexp'
 Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'kien/ctrlp.vim'
 Plugin 'chrisbra/NrrwRgn'
+Plugin 'justinmk/vim-dirvish'
 " </navigation>
 
 " <completion>
