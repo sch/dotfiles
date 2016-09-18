@@ -8,6 +8,11 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/opt/go/libexec/bin:$PATH"
 export PATH="~/.bin:$PATH"
 
+export GOPATH=$HOME/.golang
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
+
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/opt/chruby/share/chruby/auto.sh
 
@@ -17,9 +22,11 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   source $(brew --prefix)/etc/bash_completion
 fi
 
-if [ -f $(brew --prefix)/bin/docker-machine ]; then
-  eval "$(docker-machine env default)"
-fi
+eval $(opam config env)
+
+# if [ -f $(brew --prefix)/bin/docker-machine ]; then
+#   eval "$(docker-machine env default)"
+# fi
 
 VCPROMPT_FORMAT='[%b:%r]'
 PS1="\W \$(vcprompt)● "
