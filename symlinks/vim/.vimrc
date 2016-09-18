@@ -10,6 +10,8 @@ call vundle#begin()
 " let Vundle manage Vundle
 Plugin 'gmarik/vundle'
 
+Plugin 'sheerun/vim-polyglot'
+
 " <snipmate>
 " Plugin 'garbas/vim-snipmate'
 " Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -18,28 +20,26 @@ Plugin 'gmarik/vundle'
 " </snipmate>
 
 " <syntaxes>
-Plugin 'aliva/vim-fish'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'elmcast/elm-vim'
-Plugin 'fatih/vim-go'
-Plugin 'groenewege/vim-less'
-Plugin 'juvenn/mustache.vim'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'lunaru/vim-twig'
-Plugin 'mxw/vim-jsx'
-Plugin 'pangloss/vim-javascript'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'rodjek/vim-puppet'
-Plugin 'stephpy/vim-yaml'
-Plugin 'wavded/vim-stylus'
-Plugin 'wting/rust.vim'
+" Plugin 'aliva/vim-fish'
+" Plugin 'digitaltoad/vim-jade'
+" Plugin 'editorconfig/editorconfig-vim'
+" Plugin 'elixir-lang/vim-elixir'
+" Plugin 'elmcast/elm-vim'
+" Plugin 'fatih/vim-go'
+" Plugin 'groenewege/vim-less'
+" Plugin 'juvenn/mustache.vim'
+" Plugin 'lunaru/vim-twig'
+" Plugin 'mxw/vim-jsx'
+" Plugin 'pangloss/vim-javascript'
+" Plugin 'plasticboy/vim-markdown'
+" Plugin 'rodjek/vim-puppet'
+" Plugin 'stephpy/vim-yaml'
+" Plugin 'wavded/vim-stylus'
+" Plugin 'wting/rust.vim'
 " Plugin 'cwood/vim-django'
 " Plugin 'digitaltoad/vim-jade'
 " Plugin 'frerich/unicode-haskell'
 " Plugin 'jnwhiteh/vim-golang'
-" Plugin 'kchmck/vim-coffee-script'
 " Plugin 'spf13/PIV'
 " Plugin 'tpope/vim-markdown'
 " Plugin 'vim-scripts/VimClojure'
@@ -360,6 +360,7 @@ map <Leader>a :call RunAllSpecs()<CR>
 
 " <javascript> ------------------------------------------------------------------------
 let g:javascript_conceal = 1
+let g:javascript_plugin_jsdoc = 1
 " </javascript>
 
 " <python> ------------------------------------------------------------------------
@@ -413,6 +414,10 @@ imap <C-s> <esc>:w<CR>
 " set ctrlP's working directory to a git root
 let g:ctrlp_working_path_mode = 2
 let g:ctrlp_custom_ignore = '\v[\/](release|node_modules|bower_components|bower|development|build)$'
+
+
+" Configuration for elm-mode
+let g:elm_format_autosave = 1
 
 " Controversial...swap colon and semicolon for easier commands
 nnoremap ; :
