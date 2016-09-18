@@ -53,16 +53,17 @@ before layers configuration."
    ;; directory. A string value must be a path to a .PNG file.
    ;; If the value is nil then no banner is displayed.
    ;; dotspacemacs-startup-banner 'official
-   dotspacemacs-startup-banner 'official
+   dotspacemacs-startup-banner nil
    ;; t if you always want to see the changelog at startup
-   dotspacemacs-always-show-changelog t
+   ;; dotspacemacs-always-show-changelog t
    ;; List of items to show in the startup buffer. If nil it is disabled.
    ;; Possible values are: `recents' `bookmarks' `projects'."
    dotspacemacs-startup-lists '(recents projects)
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(leuven
+   dotspacemacs-themes '(minimal-light
+                         leuven
                          solarized-light
                          solarized-dark
                          monokai
@@ -71,8 +72,8 @@ before layers configuration."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Inconsolata LGC"
-                               :size 14
+   dotspacemacs-default-font '("SFMono-Regular"
+                               :size 16
                                :weight normal
                                :width normal
                                :powerline-scale 1.3)
@@ -161,16 +162,15 @@ before layers configuration."
    dotspacemacs-default-package-repository nil
    )
   ;; User initialization goes here
-  (setq-default evil-escape-key-sequence "jk")
 )
 
-(defun dotspacemacs/config ()
+(defun dotspacemacs/user-config ()
   "Configuration function.
- This function is called at the very end of Spacemacs initialization after
+This function is called at the very end of Spacemacs initialization after
 layers configuration."
+  (setq-default evil-escape-key-sequence "jk")
   (setq dotspacemacs-mode-line-unicode-symbols nil)
-  (setq powerline-default-separator nil)
-)
+  (setq powerline-default-separator 'nil))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -179,15 +179,18 @@ layers configuration."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ahs-case-fold-search nil)
- '(ahs-default-range (quote ahs-range-whole-buffer))
- '(ahs-idle-interval 0.25)
+ '(ahs-case-fold-search nil t)
+ '(ahs-default-range (quote ahs-range-whole-buffer) t)
+ '(ahs-idle-interval 0.25 t)
  '(ahs-idle-timer 0 t)
- '(ahs-inhibit-face-list nil)
+ '(ahs-inhibit-face-list nil t)
  '(custom-safe-themes
    (quote
     ("c0dd384b870de1c769d37fec8f9ff22f191b1eba7a49b1181d361e7a3c4713f0" "4dd1b115bc46c0f998e4526a3b546985ebd35685de09bc4c84297971c822750e" default)))
- '(ring-bell-function (quote ignore) t))
+ '(package-selected-packages
+   (quote
+    (monochrome-bright-theme window-numbering web-mode tern spacemacs-theme projectile-rails rake persp-mode organic-green-theme omtose-phellack-theme naquadah-theme monokai-theme moe-theme majapahit-theme leuven-theme less-css-mode hl-todo helm-projectile helm-make helm-descbinds helm-ag feature-mode exec-path-from-shell evil-matchit evil-exchange editorconfig color-theme-sanityinc-tomorrow coffee-mode bundler ace-link avy cider anzu smartparens helm helm-core f dash quelpa package-build use-package which-key evil zonokai-theme zenburn-theme zen-and-art-theme ws-butler web-beautify volatile-highlights vi-tilde-fringe undo-tree underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme tronesque-theme toxi-theme tao-theme tangotango-theme tango-plus-theme tango-2-theme tagedit sunny-day-theme sublime-themes subatomic256-theme subatomic-theme stekene-theme spaceline spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smooth-scrolling slim-mode seti-theme scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe reverse-theme reveal-in-osx-finder restart-emacs rbenv rainbow-delimiters railscasts-theme queue pyvenv pytest pyenv-mode py-yapf purple-haze-theme projectile professional-theme popwin popup pony-mode planet-theme pip-requirements phoenix-dark-pink-theme phoenix-dark-mono-theme pbcopy pastels-on-dark-theme paradox page-break-lines osx-trash open-junk-file oldlace-theme occidental-theme obsidian-theme noctilux-theme niflheim-theme neotree mustang-theme move-text monochrome-theme molokai-theme mmm-mode minimal-theme material-theme markdown-toc lush-theme lorem-ipsum linum-relative light-soap-theme launchctl json-mode js2-refactor js-doc jbeans-theme jazz-theme jade-mode ir-black-theme inkpot-theme info+ indent-guide ido-vertical-mode hy-mode hungry-delete highlight-parentheses highlight-numbers highlight-indentation heroku-theme hemisu-theme help-fns+ helm-themes helm-swoop helm-pydoc helm-mode-manager helm-flx helm-dash helm-css-scss hc-zenburn-theme gruvbox-theme gruber-darker-theme grandshell-theme goto-chg gotham-theme google-translate golden-ratio gh-md gandalf-theme flx-ido flatui-theme flatland-theme firebelly-theme fill-column-indicator farmhouse-theme fancy-battery expand-region evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-lisp-state evil-indent-plus evil-iedit-state evil-escape evil-args evil-anzu espresso-theme emmet-mode elm-mode dracula-theme dockerfile-mode django-theme diminish define-word dash-at-point darktooth-theme darkmine-theme darkburn-theme dakrone-theme cython-mode cyberpunk-theme colorsarenice-theme color-theme-sanityinc-solarized clues-theme clj-refactor clean-aindent-mode cider-eval-sexp-fu chruby cherry-blossom-theme busybee-theme buffer-move bubbleberry-theme bracketed-paste birds-of-paradise-plus-theme bind-key badwolf-theme auto-highlight-symbol async apropospriate-theme anti-zenburn-theme anaconda-mode ample-zen-theme ample-theme alect-themes aggressive-indent afternoon-theme adaptive-wrap ace-window ace-jump-helm-line)))
+ '(ring-bell-function (quote ignore)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
