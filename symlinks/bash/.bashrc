@@ -22,6 +22,9 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
   source $(brew --prefix)/etc/bash_completion
 fi
 
+# OPAM configuration
+. /Users/adrianschaedle/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+
 eval $(opam config env)
 
 # if [ -f $(brew --prefix)/bin/docker-machine ]; then
@@ -153,6 +156,8 @@ function new-git() {
 # Emacs
 alias em="open -a Emacs"
 alias emm="open -a Emacs ."
+
+alias my-ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
 # Generate a tags file for rails projects
 function rails-ctags() {
