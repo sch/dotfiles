@@ -9,6 +9,7 @@
         "atom",
         "calibre",
         "charles",
+        "cloak",
         "colorpicker-skalacolor",
         "day-o",
         "dockertoolbox",
@@ -29,6 +30,7 @@
         "karabiner",
         "notational-velocity",
         "openemu",
+        "paparazzi",
         "racket",
         "recordit",
         "satellite-eyes",
@@ -78,6 +80,7 @@
         "webkit2png",
         "wget",
         "xctool",
+        "yarn",
         "youtube-dl"
     ],
     "symlinks": {
