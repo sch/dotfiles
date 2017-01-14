@@ -3,105 +3,105 @@
 set nocompatible " Must come first because it changes other options.
 filetype off     " required!
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-" Vundle plugins ------------------------------------------------------------
-" let Vundle manage Vundle
-Plugin 'gmarik/vundle'
-
-Plugin 'sheerun/vim-polyglot'
+" Syntax highlighting for many languages
+" Does not handle extras that come from these packages
+Plug 'sheerun/vim-polyglot'
 
 " <snipmate>
-" Plugin 'garbas/vim-snipmate'
-" Plugin 'MarcWeber/vim-addon-mw-utils'
-" Plugin 'vim-scripts/tlib'
-" Plugin 'honza/snipmate-snippets'
+" Plug 'garbas/vim-snipmate'
+" Plug 'MarcWeber/vim-addon-mw-utils'
+" Plug 'vim-scripts/tlib'
+" Plug 'honza/snipmate-snippets'
 " </snipmate>
 
-" <syntaxes>
-" Plugin 'aliva/vim-fish'
-" Plugin 'digitaltoad/vim-jade'
-" Plugin 'editorconfig/editorconfig-vim'
-" Plugin 'elixir-lang/vim-elixir'
-" Plugin 'elmcast/elm-vim'
-" Plugin 'fatih/vim-go'
-" Plugin 'groenewege/vim-less'
-" Plugin 'juvenn/mustache.vim'
-" Plugin 'lunaru/vim-twig'
-" Plugin 'mxw/vim-jsx'
-" Plugin 'pangloss/vim-javascript'
-" Plugin 'plasticboy/vim-markdown'
-" Plugin 'rodjek/vim-puppet'
-" Plugin 'stephpy/vim-yaml'
-" Plugin 'wavded/vim-stylus'
-" Plugin 'wting/rust.vim'
-" Plugin 'cwood/vim-django'
-" Plugin 'digitaltoad/vim-jade'
-" Plugin 'frerich/unicode-haskell'
-" Plugin 'jnwhiteh/vim-golang'
-" Plugin 'spf13/PIV'
-" Plugin 'tpope/vim-markdown'
-" Plugin 'vim-scripts/VimClojure'
-" Plugin 'wlangstroth/vim-haskell'
-" Plugin 'wookiehangover/jshint.vim'
-" </syntaxes>
+" Plug 'aliva/vim-fish'
+" Plug 'digitaltoad/vim-jade'
+" Plug 'editorconfig/editorconfig-vim'
+" Plug 'elixir-lang/vim-elixir'
+" Plug 'elmcast/elm-vim'
+" Plug 'fatih/vim-go'
+" Plug 'groenewege/vim-less'
+" Plug 'juvenn/mustache.vim'
+" Plug 'lunaru/vim-twig'
+" Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+" Plug 'plasticboy/vim-markdown'
+" Plug 'rodjek/vim-puppet'
+" Plug 'stephpy/vim-yaml'
+" Plug 'wavded/vim-stylus'
+" Plug 'wting/rust.vim'
+" Plug 'cwood/vim-django'
+" Plug 'digitaltoad/vim-jade'
+" Plug 'frerich/unicode-haskell'
+Plug 'fatih/vim-go' " vim-polyglot gives us syntax, but none of the sugar
+" Plug 'spf13/PIV'
+" Plug 'tpope/vim-markdown'
+" Plug 'vim-scripts/VimClojure'
+" Plug 'wlangstroth/vim-haskell'
+" Plug 'wookiehangover/jshint.vim'
 
 " <navigation>
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'andrep/vimacs'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'andrep/vimacs'
 " Plugin 'scrooloose/nerdtree'
 "Fixes
-Plugin 'guns/vim-sexp'
-Plugin 'michaeljsmith/vim-indent-object'
-Plugin 'kien/ctrlp.vim'
-Plugin 'chrisbra/NrrwRgn'
-Plugin 'justinmk/vim-dirvish'
+Plug 'guns/vim-sexp'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'kien/ctrlp.vim'
+Plug 'chrisbra/NrrwRgn'
+Plug 'justinmk/vim-dirvish'
 " </navigation>
 
 " <completion>
-Plugin 'davidhalter/jedi-vim'
-Plugin 'marijnh/tern_for_vim'
-" Plugin 'Valloric/YouCompleteMe'
+Plug 'davidhalter/jedi-vim'
+Plug 'marijnh/tern_for_vim'
+" Plug 'Valloric/YouCompleteMe'
 " </completion>
 
 " <repls>
-Plugin 'tpope/vim-fireplace'
+Plug 'tpope/vim-fireplace'
 " </repls>
 
-" Plugin 'airblade/vim-gitgutter'
-" Plugin 'ludovicPelle/vim-xdebug'
-Plugin 'majutsushi/tagbar'
-" Plugin 'pbrisbin/html-template-syntax'
-Plugin 'scrooloose/syntastic'
-" Plugin 'tomtom/tcomment_vim'
-Plugin 'airblade/vim-rooter'
-Plugin 'bclear'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'c9s/bufexplorer'
-Plugin 'ervandew/supertab'
-Plugin 'godlygeek/tabular'
-Plugin 'jpalardy/vim-slime'
-Plugin 'sjl/gundo.vim'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-ragtag'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-surround'
-" Plugin 'vim-scripts/paredit.vim'
-" Plugin 'bling/vim-airline'
-Plugin 'rizzatti/funcoo.vim'
-Plugin 'rizzatti/dash.vim'
-Plugin 'rking/ag.vim'
-Plugin 'mtth/scratch.vim'
+" Plug 'airblade/vim-gitgutter'
+" Plug 'ludovicPelle/vim-xdebug'
+Plug 'majutsushi/tagbar'
+" Plug 'pbrisbin/html-template-syntax'
+Plug 'scrooloose/syntastic'
+" Plug 'tomtom/tcomment_vim'
+Plug 'airblade/vim-rooter'
+Plug 'bclear'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'c9s/bufexplorer'
+Plug 'ervandew/supertab'
+Plug 'godlygeek/tabular'
+Plug 'jpalardy/vim-slime'
+Plug 'sjl/gundo.vim'
+Plug 'thoughtbot/vim-rspec'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-liquid'
+Plug 'tpope/vim-surround'
+" Plug 'vim-scripts/paredit.vim'
+" Plug 'bling/vim-airline'
+Plug 'rizzatti/funcoo.vim'
+Plug 'rizzatti/dash.vim'
+Plug 'rking/ag.vim'
+Plug 'mtth/scratch.vim'
 
-" Plugin 'godlygeek/csapprox'
-Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/limelight.vim'
+" keeping up appearances
+" Plug 'godlygeek/csapprox'
+Plug 'junegunn/goyo.vim'
+Plug 'alessandroyorba/despacio'
+Plug 'junegunn/limelight.vim'
+Plug 'rakr/vim-two-firewatch'
+Plug 'mvader/vim-firewatch'
 
-call vundle#end()
+call plug#end()
 
 filetype plugin indent on         " Turn on file type detection.
 " filetype plugin on                " ... but don't use indentation settings set by plugins
@@ -109,6 +109,8 @@ set encoding=utf-8                " Duh
 syntax on                         " Turn on syntax highlighting.
 
 runtime macros/matchit.vim        " Load the matchit plugin (built-in).
+
+" set shell='/bin/sh'
 
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
@@ -171,9 +173,14 @@ let g:syntastic_auto_jump=1 " Let Syntastic jump to bad lines on save
 let g:syntastic_javascript_checkers = ["eslint"]
 
 
-" set the colorscheme
-colorscheme terminal
+" Neovim stuff
+let g:python_host_prog = '/usr/local/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
+
+
 set background=dark
+colorscheme despacio
+
 set visualbell t_vb=              " No beeping
 
 set list
@@ -234,26 +241,30 @@ if has('autocmd')
   autocmd FileType coffee setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType vim    setlocal ts=2 sts=2 sw=2 expandtab
 
+  " Things that I'd prefer to be 4 spaces
   autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType go setlocal tabstop=4
+
   " autocmd FileType ruby :Abolish -buffer initialise initialize
 
   " Check extension of a new file, insert the appropriate template
   autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
 
   " Automatic fold settings for specific files. Uncomment to use.
-  autocmd FileType ruby setlocal foldmethod=syntax
-  autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
+  " autocmd FileType ruby setlocal foldmethod=syntax
+  " autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
 
-  " If it looks like Ruby, treat it like Ruby
+  " If it quacks like Ruby, treat it like Ruby
   autocmd BufNewFile,BufRead Rakefile  setfiletype ruby
   autocmd BufNewFile,BufRead Capfile   setfiletype ruby
   autocmd BufNewFile,BufRead Gemfile   setfiletype ruby
   autocmd BufNewFile,BufRead Termfile  setfiletype ruby
   autocmd BufNewFile,BufRead config.ru setfiletype ruby
 
+  autocmd BufNewFile,BufRead md setlocal textwidth=80
+
   " Reload vim when the vimrc is saved
   autocmd bufwritepost .vimrc source $MYVIMRC
-
 endif
 
 " Run a given vim command on the results of fuzzy selecting from a given shell
@@ -292,11 +303,12 @@ map <C-k> <C-W>k
 map <C-j> <C-W>j
 map <C-h> <C-W>h
 map <C-l> <C-W>l
-" training wheels
-" inoremap  <Up>     <NOP>
-" inoremap  <Down>   <NOP>
-" inoremap  <Left>   <NOP>
-" inoremap  <Right>  <NOP>
+
+" be unforgiving about using arrow keys
+inoremap  <Up>     <NOP>
+inoremap  <Down>   <NOP>
+inoremap  <Left>   <NOP>
+inoremap  <Right>  <NOP>
 
 " Bind L to end-of-line
 noremap L $
@@ -326,9 +338,9 @@ nnoremap <leader>2 yypVr-
 " Some helpers to edit mode
 " http://vimcasts.org/e/14
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
-map <leader>e1 :e %%
-map <leader>e2 :sp %%
-map <leader>e3 :vsp %%
+map <leader>e :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
 
 nnoremap <leader>u :GundoToggle<cr>
 " Haskell compiler
@@ -393,7 +405,6 @@ nnoremap <return> :BufExplorer<cr>
 
 " Quick editing of .vimrc and of snippets
 nnoremap <leader>ev :e $MYVIMRC<cr>
-" nnoremap <leader>es <C-w>s<C-w>j<C-w>L:e ~/.vim/bundle/snipmate-garbas/snippets<cr>
 
 " make a vertical split and switch over to it
 nnoremap <leader>w <C-w>v<C-w>l

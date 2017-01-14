@@ -1,17 +1,19 @@
 " gvim config
 " Copy to ~/.gvimrc or ~/_gvimrc.
 
-set guifont=Monaco:h12    " Font family and font size.
-" set guifont=Inconsolata-dz:h14    " Font family and font size.
-set noantialias                     " MacVim: aliased fonts.
-" set antialias                     " MacVim: smooth fonts.
+" set guifont=Monaco:h12            " Font family and font size.
+" set noantialias                   " MacVim: aliased fonts.
+
+set guifont=SF\ Mono\ Regular:h14 " Font family and font size.
+set antialias                     " MacVim: smooth fonts.
+
 set encoding=utf-8                " Use UTF-8 everywhere.
 set guioptions-=T                 " Hide toolbar.
 set background=dark               " Background.
 set lines=55 columns=85           " Window dimensions.
 
-" colorscheme codeschool
-colorscheme Tomorrow-Night
+colorscheme two-firewatch
+let g:two_firewatch_italics=1
 
 set guioptions-=r                 " Don't show right scrollbar
 set guioptions-=R
@@ -24,3 +26,22 @@ set fuoptions=maxvert,maxhorz
 map <D-j> <C-f>
 map <D-k> <C-b>
 
+autocmd bufwritepost .gvimrc source $MYGVIMRC " reload this file when saved
+
+function! ToggleBackgroundColor()
+  if (&background == 'light')
+    set background=dark
+  else
+    set background=light
+  endif
+endfunction
+
+function! ToggleAliasing()
+  if (&antialias == 1)
+    set guifont=Monaco:h12            " Font family and font size.
+    set noantialias                   " MacVim: aliased fonts.
+  else
+    set guifont=SF\ Mono\ Regular:h16 " Font family and font size.
+    set antialias                     " MacVim: smooth fonts.
+  endif
+endfunction
