@@ -6,6 +6,7 @@
 	aliases = config --get-regexp ^alias\\.
 	amend = commit --amend --no-edit
 	last-commit = rev-parse HEAD
+	branches = branch --sort=-committerdate
 	staged = diff --staged
 	delete-merged = !git branch --merged | grep -v \"\\*\" | xargs -n 1 git branch -d
 	one-more-thing = !git add . && git amend && git push --force
