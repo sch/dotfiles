@@ -1,0 +1,94 @@
+"*":
+  Zen:
+    fullscreen: false
+    typewriter: true
+  "asciidoc-preview": {}
+  "atom-ternjs":
+    lint: true
+  "autocomplete-python":
+    useKite: false
+  core:
+    customFileTypes:
+      "source.scheme": [
+        "ms"
+      ]
+    disabledPackages: [
+      "linter-scss-lint"
+      "atom-ctags"
+      "linter-erb"
+      "linter-jshint"
+      "activate-power-mode"
+      "ex-mode"
+      "tool-bar"
+    ]
+    packagesWithKeymapsDisabled: [
+      "gist-it"
+      "markdown-preview"
+    ]
+    telemetryConsent: "no"
+    themes: [
+      "one-dark-ui"
+      "firewatch-syntax"
+    ]
+  editor:
+    backUpBeforeSaving: true
+    fontFamily: "\"SFMono-Regular\", \"Fira Code\", \"inconssolata-lgc\", \"inconsolata-dz\""
+    invisibles: {}
+    scrollPastEnd: true
+    showInvisibles: true
+    softTabs: false
+    softWrap: true
+  "elm-format":
+    binary: "/Users/adrianschaedle/.bin/elm-format"
+    formatOnSave: true
+  "exception-reporting":
+    userId: "937d94a8-f8c3-5eaf-cda2-c1a85ec2f8a3"
+  "gist-it":
+    newGistsDefaultToPrivate: true
+    userToken: "ee7e5dbae7e4177ae48b9079ef06f5b5cc3f0f13"
+  "go-plus":
+    currentPanelHeight: "19.88984088127295vh"
+    panelDisplayMode: "closed"
+  "language-elm": {}
+  linter:
+    errorPanelHeight: 24
+    lintOnFly: false
+    statusIconScope: "File"
+  "linter-eslint":
+    globalNodePath: "/usr/local"
+  "linter-js-standard":
+    checkStyleDevDependencies: true
+  "linter-jshint": {}
+  "linter-scss-lint":
+    disableWhenNoConfigFileInPath: true
+    executablePath: "/Users/adrianschaedle/.gem/ruby/2.1.3/bin/scss-lint"
+  "markdown-preview":
+    breakOnSingleNewline: true
+    useGitHubStyle: true
+  "one-light-ui": {}
+  "proto-repl":
+    autoPrettyPrint: true
+    autoScroll: false
+    leinPath: "/usr/local/bin/lein"
+  react: {}
+  tabs:
+    enableVcsColoring: true
+    usePreviewTabs: true
+  "tree-view":
+    hideVcsIgnoredFiles: true
+    squashDirectoryNames: true
+  "unity-ui": {}
+  "vim-mode":
+    useClipboardAsDefaultRegister: true
+    useSmartcaseForSearch: true
+  welcome:
+    showOnStartup: false
+  whitespace: {}
+".clojure.source":
+  editor:
+    autoIndent: true
+    autoIndentOnPaste: true
+".go.source":
+  editor:
+    showIndentGuide: true
+    tabLength: 4

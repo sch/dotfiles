@@ -59,6 +59,7 @@
         "heroku-toolbelt",
         "httpie",
         "hub",
+        "ipfs",
         "jq",
         "leiningen",
         "node",
