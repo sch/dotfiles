@@ -8,33 +8,32 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/opt/go/libexec/bin:$PATH"
 export PATH="~/.bin:$PATH"
 
-export GOPATH=$HOME/.golang
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
+export GOPATH=$HOME/golang
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
-source /usr/local/opt/chruby/share/chruby/chruby.sh
-source /usr/local/opt/chruby/share/chruby/auto.sh
+test -e /usr/local/share/chruby/chruby.sh && source /usr/local/share/chruby/chruby.sh
+test -e /usr/local/share/chruby/auto.sh && source /usr/local/share/chruby/auto.sh
 
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+# [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+source /usr/share/autojump/autojump.sh
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-  source $(brew --prefix)/etc/bash_completion
-fi
+# if [[ -f $(brew --prefix)/etc/bash_completion ]]; then
+#   source $(brew --prefix)/etc/bash_completion
+# fi
 
-# OPAM configuration
-. /Users/adrianschaedle/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
-
-eval $(opam config env)
+test -e opam && eval $(opam config env)
 
 # if [ -f $(brew --prefix)/bin/docker-machine ]; then
 #   eval "$(docker-machine env default)"
 # fi
 
-VCPROMPT_FORMAT='[%b:%r]'
-PS1="\W \$(vcprompt)● "
+export TERM='screen-256color'
 
-eval "$(direnv hook bash)" # Must come last
+VCPROMPT_FORMAT='[%b:%r]'
+PS1="\W \$(vcprompt) ● "
+
+# eval "$(direnv hook bash)" # Must come last
 
 # Utility
 alias edit-config='vim ~/.bashrc && reload' # Edit aliases
@@ -59,7 +58,7 @@ alias lh="ls -lh"
 alias ll='ls -lhG'  # -l long listing, human readable, no group info
 alias lt='ls -lt'   # sort with recently modified first
 
-alias git='hub'
+# alias git='hub'
 alias repos='tree -L 2 ~/github'
 
 alias md='mkdir -p'
