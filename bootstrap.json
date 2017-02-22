@@ -96,7 +96,8 @@
         "pow/.*": "~",
         "ruby/.*": "~",
         "tmux/tmux.conf": "~/.tmux.conf",
-        "vim/.*": "~"
+        "vim/.vim": "~/.vim",
+        "vim/.vim/init.vim": "~/.vimrc"
     },
     "taps": [
         "caskroom/cask",
