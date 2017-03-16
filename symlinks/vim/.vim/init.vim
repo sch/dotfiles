@@ -21,7 +21,6 @@ Plug 'sheerun/vim-polyglot'
 " Plug 'editorconfig/editorconfig-vim'
 " Plug 'elixir-lang/vim-elixir'
 " Plug 'elmcast/elm-vim'
-" Plug 'fatih/vim-go'
 " Plug 'groenewege/vim-less'
 " Plug 'juvenn/mustache.vim'
 " Plug 'lunaru/vim-twig'
@@ -36,7 +35,7 @@ Plug 'flowtype/vim-flow'
 " Plug 'cwood/vim-django'
 " Plug 'digitaltoad/vim-jade'
 " Plug 'frerich/unicode-haskell'
-Plug 'fatih/vim-go' " vim-polyglot gives us syntax, but none of the sugar
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } " vim-polyglot gives us syntax, but none of the sugar
 " Plug 'spf13/PIV'
 " Plug 'tpope/vim-markdown'
 " Plug 'reedes/vim-pencil'
@@ -47,6 +46,7 @@ Plug 'fatih/vim-go' " vim-polyglot gives us syntax, but none of the sugar
 " <navigation>
 Plug 'Lokaltog/vim-easymotion'
 Plug 'andrep/vimacs'
+Plug 'tpope/vim-rsi'
 " Plugin 'scrooloose/nerdtree'
 "Fixes
 Plug 'guns/vim-sexp'
@@ -54,6 +54,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'kien/ctrlp.vim'
 Plug 'chrisbra/NrrwRgn'
 Plug 'justinmk/vim-dirvish'
+Plug 'danro/rename.vim'
 " </navigation>
 
 " <completion>
@@ -65,6 +66,14 @@ Plug 'marijnh/tern_for_vim'
 " <repls>
 Plug 'tpope/vim-fireplace'
 " </repls>
+
+" <neovim>
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'carlitux/deoplete-ternjs'
+Plug 'neovim/node-host'
+Plug 'snoe/nvim-parinfer.js'
+Plug 'clojure-vim/async-clj-omni'
+" </neovim>
 
 " Plug 'airblade/vim-gitgutter'
 " Plug 'ludovicPelle/vim-xdebug'
@@ -84,9 +93,10 @@ Plug 'thoughtbot/vim-rspec'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-liquid'
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-rails'
-Plug 'tpope/vim-liquid'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 " Plug 'vim-scripts/paredit.vim'
 " Plug 'bling/vim-airline'
@@ -152,35 +162,24 @@ set nowrap                          " Turn on line wrapping.
 set linebreak                     " Don't split words when wrapping
 set textwidth=79                  " Autobreak after 79 char/
 set formatoptions=qrn1
-" set colorcolumn=85
+set colorcolumn=85
 set scrolloff=5                   " Show 5 lines of context around the cursor.
 set ttyfast                       " Faster key commands in terminal Vim.
 
 set title                         " Set the terminal's title
 set laststatus=2                  " Show the status line all the time
 
+set splitbelow
+set splitright
+
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-
-" Syntastic configuration
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_auto_jump=1 " Let Syntastic jump to bad lines on save
-let g:syntastic_javascript_checkers = ["eslint"]
-
-
-" Neovim stuff
-let g:python_host_prog = '/usr/local/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3'
-
-
 set background=dark
+let g:despacio_Campfire=1
 colorscheme despacio
 
 set visualbell t_vb=              " No beeping
@@ -211,7 +210,7 @@ set expandtab                     " Use spaces instead of tabs
 set showmatch                     " set show matching parenthesis
 set smarttab                      " insert tabs on the start of a line according to
                                   " shiftwidth, not tabstop
-set clipboard+=unnamed            " Make yanking possible across windows
+set clipboard+=unnamedplus        " Access clipboard universally
 
 
 " <window sizing>
@@ -231,7 +230,7 @@ if has('autocmd')
 
   filetype on
 
-  autocmd FileType asm setlocal ts=4 sts=0 sw=0 noexpandtab
+  autocmd FileType asm    setlocal ts=4 sts=0 sw=0 noexpandtab
 
   " The Rubyish family of languges that prefer 2-space indentation
   autocmd FileType html   setlocal ts=2 sts=2 sw=2 expandtab
@@ -245,16 +244,12 @@ if has('autocmd')
 
   " Things that I'd prefer to be 4 spaces
   autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
-  autocmd FileType go setlocal tabstop=4
+  autocmd FileType go     setlocal tabstop=4
 
   " autocmd FileType ruby :Abolish -buffer initialise initialize
 
   " Check extension of a new file, insert the appropriate template
   autocmd! BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
-
-  " Automatic fold settings for specific files. Uncomment to use.
-  " autocmd FileType ruby setlocal foldmethod=syntax
-  " autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
 
   " If it quacks like Ruby, treat it like Ruby
   autocmd BufNewFile,BufRead Rakefile  setfiletype ruby
@@ -265,39 +260,12 @@ if has('autocmd')
 
   autocmd BufNewFile,BufRead md setlocal textwidth=80
 
+  " Open the help window in a side split rather than a vertical one
+  autocmd FileType help wincmd L
+
   " Reload vim when the vimrc is saved
   autocmd bufwritepost .vimrc source $MYVIMRC
 endif
-
-" Run a given vim command on the results of fuzzy selecting from a given shell
-" command. See usage below.
-function! SelectaCommand(choice_command, selecta_args, vim_command)
-  try
-    let selection = system(a:choice_command . " | selecta " . a:selecta_args)
-  catch /Vim:Interrupt/
-    " Swallow the ^C so that the redraw below happens; otherwise there will be
-    " leftovers from selecta on the screen
-    redraw!
-    return
-  endtry
-  redraw!
-  exec a:vim_command . " " . selection
-endfunction
-
-" Find all files in all non-dot directories starting in the working directory.
-" Fuzzy select one of those. Open the selected file with :e.
-nnoremap <leader>f :call SelectaCommand("find * -type f", "", ":e")<cr>
-
-" Rename lines without all the fuss
-function! RenameFile()
-  let old_name = expand('%')
-  let new_name = input('New file name: ', expand('%'))
-  if new_name != '' && new_name != old_name
-    exec ':saveas ' . new_name
-    exec ':silent !rm ' . old_name
-    redraw!
-  endif
-endfunction
 
 let mapleader = ","                "easier leader
 " Speed up buffer switching
@@ -342,11 +310,62 @@ nnoremap <leader>2 yypVr-
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :e %%
 map <leader>es :sp %%
-map <leader>ev :vsp %%
 
 nnoremap <leader>u :GundoToggle<cr>
 " Haskell compiler
 " au BufEnter *.hs compiler ghc
+
+
+" Deoplete setup
+" https://github.com/Shougo/deoplete.nvim
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#keyword_patterns = {}
+let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'
+
+
+" Syntastic configuration
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_auto_jump=1 " Let Syntastic jump to bad lines on save
+let g:syntastic_javascript_checkers = ['eslint']
+
+
+" Neovim stuff
+let g:python_host_prog = '/usr/local/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
+
+
+" Run a given vim command on the results of fuzzy selecting from a given shell
+" command. See usage below.
+function! SelectaCommand(choice_command, selecta_args, vim_command)
+  try
+    let selection = system(a:choice_command . " | selecta " . a:selecta_args)
+  catch /Vim:Interrupt/
+    " Swallow the ^C so that the redraw below happens; otherwise there will be
+    " leftovers from selecta on the screen
+    redraw!
+    return
+  endtry
+  redraw!
+  exec a:vim_command . " " . selection
+endfunction
+
+" Find all files in all non-dot directories starting in the working directory.
+" Fuzzy select one of those. Open the selected file with :e.
+nnoremap <leader>f :call SelectaCommand("find * -type f", "", ":e")<cr>
+
+" Rename lines without all the fuss
+function! RenameFile()
+  let old_name = expand('%')
+  let new_name = input('New file name: ', expand('%'))
+  if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+  endif
+endfunction
 
 """"""""""""""""""""
 " POWERLINE SETTINGS
@@ -436,6 +455,27 @@ let g:elm_format_autosave = 1
 nnoremap ; :
 vnoremap ; :
 " nb: don't remap ; because it breaks plugins
+
+function! s:goyo_enter()
+  silent !tmux-next set status off
+  silent !tmux-next list-panes -F '\#F' | grep -q Z || tmux-next resize-pane -Z
+  set noshowmode
+  set noshowcmd
+  set scrolloff=999
+  Limelight
+endfunction
+
+function! s:goyo_leave()
+  silent !tmux-next set status on
+  silent !tmux-next list-panes -F '\#F' | grep -q Z && tmux-next resize-pane -Z
+  set showmode
+  set showcmd
+  set scrolloff=5
+  Limelight!
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 " =============================================================================
 " The treasure trove that are these configs mostly came from:
