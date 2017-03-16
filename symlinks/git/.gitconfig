@@ -1,6 +1,7 @@
 [user]
 	name = Adrian Schaedle
 	email = adrian@schaedle.me
+	signingkey = adrian@schaedle.me
 
 [alias]
 	aliases = config --get-regexp ^alias\\.
@@ -37,7 +38,7 @@
 	trustctime = false
 	autocrlf = input
 	safecrlf = false
-	editor = /usr/local/bin/vim
+	editor = nvim
 
 [pull]
 	rebase = true
@@ -57,3 +58,5 @@ protocol = https
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[commit]
+	gpgsign = true
