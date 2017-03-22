@@ -112,6 +112,7 @@ Plug 'alessandroyorba/despacio'
 Plug 'junegunn/limelight.vim'
 Plug 'rakr/vim-two-firewatch'
 Plug 'mvader/vim-firewatch'
+Plug 'clinstid/eink.vim'
 
 call plug#end()
 
@@ -179,7 +180,9 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 set background=dark
-let g:despacio_Campfire=1
+let g:despacio_Campfire = 0
+let g:despacio_Twilight = 1
+let g:despacio_Midnight = 0
 colorscheme despacio
 
 set visualbell t_vb=              " No beeping
@@ -322,6 +325,12 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#keyword_patterns = {}
 let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'
 
+" Tern setup. Tern usage relies on the tern_for_vim package, which provides
+" a couple useful commands for navigating around a javascript project. There's
+" no good way of generating tags from a 
+let g:tern_request_timeout = 1
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
 
 " Syntastic configuration
 let g:syntastic_always_populate_loc_list = 1
