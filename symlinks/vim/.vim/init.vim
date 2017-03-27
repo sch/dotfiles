@@ -47,6 +47,7 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } " vim-polyglot gives us synt
 Plug 'Lokaltog/vim-easymotion'
 Plug 'andrep/vimacs'
 Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-vinegar'
 " Plugin 'scrooloose/nerdtree'
 "Fixes
 Plug 'guns/vim-sexp'
@@ -75,8 +76,8 @@ Plug 'snoe/nvim-parinfer.js'
 Plug 'clojure-vim/async-clj-omni'
 " </neovim>
 
-" Plug 'airblade/vim-gitgutter'
-" Plug 'ludovicPelle/vim-xdebug'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-easytags'
 Plug 'majutsushi/tagbar'
 " Plug 'pbrisbin/html-template-syntax'
 Plug 'scrooloose/syntastic'
@@ -99,7 +100,6 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 " Plug 'vim-scripts/paredit.vim'
-" Plug 'bling/vim-airline'
 Plug 'rizzatti/funcoo.vim'
 Plug 'rizzatti/dash.vim'
 Plug 'rking/ag.vim'
@@ -339,6 +339,19 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_auto_jump=1 " Let Syntastic jump to bad lines on save
 let g:syntastic_javascript_checkers = ['eslint']
+
+
+" Ctags related configuration. Easytags is the tool that auomatically
+" regenerates ctag files on save. Normally it runs in a syncronous mode, so we
+" turn that off. Rather than having a project-specific tags file, it instead
+" stuffs all the tags into a file ~/.vimtags. If there is a local tags file in
+" the project however, that will be considered in tag lookup.
+set tags=./tags;,~/.vimtags
+let g:easytags_events = ['BufReadPost', 'BufWritePost']
+let g:easytags_async = 1
+let g:easytags_dynamic_files = 2
+let g:easytags_resolve_links = 1
+let g:easytags_supress_ctags_warning = 1
 
 
 " Neovim stuff
