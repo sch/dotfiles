@@ -23,6 +23,7 @@ source /usr/share/autojump/autojump.sh
 # fi
 
 test -e opam && eval $(opam config env)
+# . /home/adrian/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
 # if [ -f $(brew --prefix)/bin/docker-machine ]; then
 #   eval "$(docker-machine env default)"
@@ -62,6 +63,9 @@ alias lt='ls -lt'   # sort with recently modified first
 alias repos='tree -L 2 ~/github'
 
 alias md='mkdir -p'
+
+# Get disk usage including all hidden files for the current directory
+alias usage='du -hs .[^.]* * | sort -h'
 
 alias s='cd ..'     # up one dir
 alias ..='cd ..'
