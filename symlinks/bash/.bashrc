@@ -29,12 +29,11 @@ test -e opam && eval $(opam config env)
 #   eval "$(docker-machine env default)"
 # fi
 
-export TERM='screen-256color'
 
 VCPROMPT_FORMAT='[%b:%r]'
 PS1="\W \$(vcprompt) ● "
 
-# eval "$(direnv hook bash)" # Must come last
+eval "$(direnv hook bash)" # Must come last
 
 # Utility
 alias edit-config='vim ~/.bashrc && reload' # Edit aliases
