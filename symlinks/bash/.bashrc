@@ -72,6 +72,8 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
+alias delete-node-modules='find . -name "node_modules" -type d -prune -exec rm -rf "{}" +'
+
 function take() {
     mkdir -p "$1"
     cd "$1"
