@@ -3,85 +3,74 @@
 set nocompatible " Must come first because it changes other options.
 filetype off     " required!
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.cider/symlinks/vim/.vim/plugged')
 
-" Syntax highlighting for many languages
-" Does not handle extras that come from these packages
 Plug 'sheerun/vim-polyglot'
-
-" <snipmate>
-" Plug 'garbas/vim-snipmate'
-" Plug 'MarcWeber/vim-addon-mw-utils'
-" Plug 'vim-scripts/tlib'
-" Plug 'honza/snipmate-snippets'
-" </snipmate>
-
-" Plug 'aliva/vim-fish'
-" Plug 'digitaltoad/vim-jade'
-" Plug 'editorconfig/editorconfig-vim'
-" Plug 'elixir-lang/vim-elixir'
-" Plug 'elmcast/elm-vim'
-" Plug 'groenewege/vim-less'
-" Plug 'juvenn/mustache.vim'
-" Plug 'lunaru/vim-twig'
-" Plug 'mxw/vim-jsx'
+Plug 'othree/html5.vim'
+Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
+Plug 'jelera/vim-javascript-syntax'
 Plug 'flowtype/vim-flow'
-" Plug 'plasticboy/vim-markdown'
-" Plug 'rodjek/vim-puppet'
-" Plug 'stephpy/vim-yaml'
-" Plug 'wavded/vim-stylus'
-" Plug 'wting/rust.vim'
-" Plug 'cwood/vim-django'
-" Plug 'digitaltoad/vim-jade'
-" Plug 'frerich/unicode-haskell'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } " vim-polyglot gives us syntax, but none of the sugar
-" Plug 'spf13/PIV'
-" Plug 'tpope/vim-markdown'
-" Plug 'reedes/vim-pencil'
-" Plug 'vim-scripts/VimClojure'
-" Plug 'wlangstroth/vim-haskell'
-" Plug 'wookiehangover/jshint.vim'
-
-" <navigation>
 Plug 'Lokaltog/vim-easymotion'
 Plug 'andrep/vimacs'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-vinegar'
-" Plugin 'scrooloose/nerdtree'
-"Fixes
+
+" Use 'conceal mode' to display files with ansi colored text. Usefult for
+" plugins that output colored text and assume a terminal context.
+Plug 'powerman/vim-plugin-AnsiEsc'
+
+" Supplies syntax highlighting and indentation for Elixir
+Plug 'elixir-lang/vim-elixir'
+
+" Autocomplete (<C-x><C-o>) and documentation (K) in Elixir code
+" ctag-like functionality as well with <C-]>, :Mix command for running tasks
+" Has a python dependency on alchemist_client
+Plug 'slashmili/alchemist.vim'
+
+" Syntax highlighting, completion, and build tools for elm
+Plug 'ElmCast/elm-vim'
+
+" Seamlessly navigate between tmux panes and vim panes:
+Plug 'christoomey/vim-tmux-navigator'
+
 Plug 'guns/vim-sexp'
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'chrisbra/NrrwRgn'
 Plug 'justinmk/vim-dirvish'
 Plug 'danro/rename.vim'
-" </navigation>
 
-" <completion>
+" Standardized test running interface
+Plug 'janko-m/vim-test'
+
 Plug 'davidhalter/jedi-vim'
 Plug 'marijnh/tern_for_vim'
-" Plug 'Valloric/YouCompleteMe'
-" </completion>
 
-" <repls>
 Plug 'tpope/vim-fireplace'
-" </repls>
 
 " <neovim>
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'carlitux/deoplete-ternjs'
-Plug 'neovim/node-host'
-Plug 'snoe/nvim-parinfer.js'
-Plug 'clojure-vim/async-clj-omni'
+" Plug 'carlitux/deoplete-ternjs'
+" Plug 'neovim/node-host'
+" Plug 'snoe/nvim-parinfer.js'
+" Plug 'clojure-vim/async-clj-omni'
+
+" Neomake provides async glue for running periodic jobs like linting or
+" compiling in Neovim.
+Plug 'neomake/neomake'
 " </neovim>
 
 Plug 'xolox/vim-misc'
-Plug 'xolox/vim-easytags'
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
+
+" Gutentags intelligently rebuilds tags in the background. Notable because
+" it's cross-platform, is pure vimscript, and performs incremental generation.
+Plug 'ludovicchabant/vim-gutentags'
+
 " Plug 'pbrisbin/html-template-syntax'
 Plug 'scrooloose/syntastic'
-" Plug 'tomtom/tcomment_vim'
 Plug 'airblade/vim-rooter'
 Plug 'bclear'
 Plug 'bronson/vim-trailing-whitespace'
@@ -113,6 +102,9 @@ Plug 'junegunn/limelight.vim'
 Plug 'rakr/vim-two-firewatch'
 Plug 'mvader/vim-firewatch'
 Plug 'clinstid/eink.vim'
+
+" ia writer-inspired theme
+Plug 'reedes/vim-colors-pencil'
 
 call plug#end()
 
@@ -166,6 +158,7 @@ set formatoptions=qrn1
 set colorcolumn=85
 set scrolloff=5                   " Show 5 lines of context around the cursor.
 set ttyfast                       " Faster key commands in terminal Vim.
+set lazyredraw
 
 set title                         " Set the terminal's title
 set laststatus=2                  " Show the status line all the time
@@ -199,9 +192,9 @@ set backupdir-=.
 set backupdir^=~/tmp,/tmp
 
 if has('persistent_undo')
-set undofile                    " so is persistent undo ...
-set undodir=~/.vim/undo          " directory for these files
-set undolevels=1000             " maximum number of changes that can be undone
+  set undofile                    " so is persistent undo ...
+  set undodir=~/.vim/undo         " directory for these files
+  set undolevels=1000             " maximum number of changes that can be undone
   set undoreload=10000            " maximum number lines to save for undo on a buffer reload
 endif
 
@@ -215,17 +208,20 @@ set smarttab                      " insert tabs on the start of a line according
                                   " shiftwidth, not tabstop
 set clipboard+=unnamedplus        " Access clipboard universally
 
-
 " <window sizing>
-set winwidth=82
+set winwidth=89
 set winminwidth=30
 " set winheight=5
 " set winminheight=5
 " set winheight=9999
 " </window sizing>
-"
+
+" Scroll the opposite window
+nmap <a-y> <c-w>w<c-y><c-w>w
+nmap <a-e> <c-w>w<c-e><c-w>w
+
 " recursively check the directory tree for ctags
-set tags=tags;/
+" set tags=tags;/
 
 " `autocmd` provides hooks to occur when reading or writing a file based on
 " things like filetype, buffer actions, vim startup, etc
@@ -247,6 +243,7 @@ if has('autocmd')
 
   " Things that I'd prefer to be 4 spaces
   autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType elm setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType go     setlocal tabstop=4
 
   " autocmd FileType ruby :Abolish -buffer initialise initialize
@@ -272,10 +269,10 @@ endif
 
 let mapleader = ","                "easier leader
 " Speed up buffer switching
-map <C-k> <C-W>k
-map <C-j> <C-W>j
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+" map <C-k> <C-W>k
+" map <C-j> <C-W>j
+" map <C-h> <C-W>h
+" map <C-l> <C-W>l
 
 " be unforgiving about using arrow keys
 inoremap  <Up>     <NOP>
@@ -302,7 +299,7 @@ nmap <tab> %
 vmap <tab> %
 
 " Clear highlighted search
-nmap <silent> <leader>/ :nohlsearch<CR>
+" nmap <silent> <leader>/ :nohlsearch<CR>
 
 " markdown-style row of === under current line
 nnoremap <leader>1 yypVr=
@@ -321,13 +318,15 @@ nnoremap <leader>u :GundoToggle<cr>
 
 " Deoplete setup
 " https://github.com/Shougo/deoplete.nvim
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#keyword_patterns = {}
-let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'
+if has('nvim')
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#keyword_patterns = {}
+  let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'
+endif
 
 " Tern setup. Tern usage relies on the tern_for_vim package, which provides
 " a couple useful commands for navigating around a javascript project. There's
-" no good way of generating tags from a 
+" no good way of generating ctags for js
 let g:tern_request_timeout = 1
 let g:tern#command = ["tern"]
 let g:tern#arguments = ["--persistent"]
@@ -340,18 +339,28 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_auto_jump=1 " Let Syntastic jump to bad lines on save
 let g:syntastic_javascript_checkers = ['eslint']
 
+" There's an annoying message that pops up all the time using Rubocop affecting
+" code like the following in ERB files:
+"
+" <% flash.each do |key, value| %>
+"   <div class="flash <%= key %>"><%= value %></div>
+" <% end %>
+"
+" It's fine to ouptut nil in the case that nothing is available to render. This
+" setting change turns off the checker for this issue:
+let g:syntastic_eruby_ruby_quiet_messages =
+      \ {'regex': 'possibly useless use of a variable in void context'}
 
-" Ctags related configuration. Easytags is the tool that auomatically
-" regenerates ctag files on save. Normally it runs in a syncronous mode, so we
-" turn that off. Rather than having a project-specific tags file, it instead
-" stuffs all the tags into a file ~/.vimtags. If there is a local tags file in
-" the project however, that will be considered in tag lookup.
-set tags=./tags;,~/.vimtags
-let g:easytags_events = ['BufReadPost', 'BufWritePost']
-let g:easytags_async = 1
-let g:easytags_dynamic_files = 2
-let g:easytags_resolve_links = 1
-let g:easytags_supress_ctags_warning = 1
+
+" Follow a tag, but open it in a vertical split with <alt-]>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+
+" In order for Alchemist.vim to find Elixir source files for the
+" jump-to-definition feature, we need to point it to a directory with the
+" Elixir and Erlang source code. Homebrew only downloads the complied BEAM
+" files.
+let g:alchemist#elixir_erlang_src = '/Users/adrianschaedle/github/elixir-lang'
 
 
 " Neovim stuff
@@ -389,38 +398,17 @@ function! RenameFile()
   endif
 endfunction
 
-""""""""""""""""""""
-" POWERLINE SETTINGS
-""""""""""""""""""""
-" let g:Powerline_symbols = 'fancy'
-" let g:Powerline_theme = 'skwp'
-" let g:Powerline_colorscheme = 'skwp'
-
-"""""" END POWERLINE
-""""""""""""""""""""
-" <airline>
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_left_sep  = ''
-let g:airline_right_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = '|'
-" </airline>
-"
-" <ruby> ------------------------------------------------------------------------
-let g:rspec_command = "!bundle exec rspec "
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
-" </ruby>
+" Run tests using vim-test
+nmap <silent> <leader>t :TestNearest<cr>
+nmap <silent> <leader>T :TestFile<cr>
+nmap <silent> <leader>a :TestSuite<cr>
+nmap <silent> <leader>l :TestLast<cr>
+nmap <silent> <leader>g :TestVisit<cr>
 
 " <javascript> ------------------------------------------------------------------------
 let g:javascript_conceal = 1
 let g:javascript_plugin_jsdoc = 1
 " </javascript>
-
-" <python> ------------------------------------------------------------------------
-let g:jedi#use_tabs_not_buffers = 0
-" </python>
 
 " View the current project's readme
 " command Readme execute '!nd README.md'
@@ -436,11 +424,7 @@ vmap <C-Down> xp`[V`]
 vmap Q gq
 nmap Q gqap
 
-" nerd tree shortcut
-" nnoremap <leader>. :NERDTreeToggle<cr>
-" let NERDTreeIgnore=['\.pyc$','development$', 'node_modules$', 'release$', '\.vim$', '\~$']
-
-" bufexplorer shortcut
+" Jump quickly between open files with <return>
 nnoremap <return> :BufExplorer<cr>
 
 " open up Marked
@@ -458,16 +442,12 @@ nnoremap <BS> :nohlsearch<CR>
 " Escape normal mode quicker
 inoremap kj <ESC>
 
-" Save and escape
-map <C-s> <esc>:w<CR>
-imap <C-s> <esc>:w<CR>
-
 " Set ctrlP's position to the top
 :let g:ctrlp_match_window_bottom = 0
 " :let g:ctrlp_match_window_reversed = 0
 " set ctrlP's working directory to a git root
 let g:ctrlp_working_path_mode = 2
-let g:ctrlp_custom_ignore = '\v[\/](release|node_modules|bower_components|bower|development|build)$'
+let g:ctrlp_custom_ignore = '\v[\/](release|node_modules|bower_components|bower|development|build|vendor\/gems|deps|priv|elm-stuff)$'
 
 
 " Configuration for elm-mode
@@ -477,6 +457,10 @@ let g:elm_format_autosave = 1
 nnoremap ; :
 vnoremap ; :
 " nb: don't remap ; because it breaks plugins
+
+
+" Limelight can't always infer from a theme what color to make darkened text
+let g:limelight_conceal_ctermfg = 'darkgray'
 
 function! s:goyo_enter()
   silent !tmux-next set status off
