@@ -9,14 +9,14 @@ export PATH="/usr/local/opt/go/libexec/bin:$PATH"
 export PATH="~/.bin:$PATH"
 
 export GOPATH=$HOME/golang
-export GOROOT=/usr/local/go
+# export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 test -e /usr/local/share/chruby/chruby.sh && source /usr/local/share/chruby/chruby.sh
 test -e /usr/local/share/chruby/auto.sh && source /usr/local/share/chruby/auto.sh
 
-# [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
-source /usr/share/autojump/autojump.sh
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+# source /usr/share/autojump/autojump.sh
 
 # if [[ -f $(brew --prefix)/etc/bash_completion ]]; then
 #   source $(brew --prefix)/etc/bash_completion
