@@ -17,6 +17,13 @@ Plug 'andrep/vimacs'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-vinegar'
 
+" Lift some commmon Unix commands into vim-land. This includes things like:
+" Delete, Rename, Chmod, Move, etc
+Plug 'tpope/vim-eunuch'
+
+" Persist vim sessions (open up previous windows, folds, etc)
+Plug 'tpope/vim-obsession'
+
 " Use 'conceal mode' to display files with ansi colored text. Usefult for
 " plugins that output colored text and assume a terminal context.
 Plug 'powerman/vim-plugin-AnsiEsc'
@@ -59,7 +66,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Neomake provides async glue for running periodic jobs like linting or
 " compiling in Neovim.
-Plug 'neomake/neomake'
+" Plug 'neomake/neomake'
 " </neovim>
 
 Plug 'xolox/vim-misc'
@@ -70,7 +77,17 @@ Plug 'xolox/vim-misc'
 Plug 'ludovicchabant/vim-gutentags'
 
 " Plug 'pbrisbin/html-template-syntax'
-Plug 'scrooloose/syntastic'
+
+
+
+" Ale is an autocompletion framework designed for neovim/vim8 that doesn't
+" really have any configuration. It replaces syntastic, so we can leave that
+" around if ale doesn't prove successful.
+Plug 'w0rp/ale'
+" Plug 'scrooloose/syntastic'
+
+
+
 Plug 'airblade/vim-rooter'
 Plug 'bclear'
 Plug 'bronson/vim-trailing-whitespace'
@@ -169,7 +186,7 @@ set splitright
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 set background=dark
@@ -243,7 +260,7 @@ if has('autocmd')
 
   " Things that I'd prefer to be 4 spaces
   autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
-  autocmd FileType elm setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType elm    setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType go     setlocal tabstop=4
 
   " autocmd FileType ruby :Abolish -buffer initialise initialize
@@ -339,6 +356,16 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_auto_jump=1 " Let Syntastic jump to bad lines on save
 let g:syntastic_javascript_checkers = ['eslint']
 
+" Linting
+" with the ale library
+let g:ale_sign_error = '->'
+let g:ale_sign_warning = '--'
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+nmap <silent> <leader>k <Plug>(ale_previous_wrap)
+nmap <silent> <leader>j <Plug>(ale_next_wrap)
+let g:ale_lint_on_text_changed = 'never'
+
 " There's an annoying message that pops up all the time using Rubocop affecting
 " code like the following in ERB files:
 "
@@ -355,6 +382,9 @@ let g:syntastic_eruby_ruby_quiet_messages =
 " Follow a tag, but open it in a vertical split with <alt-]>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
+" Give airline some reasonable defaults
+let g:airline_left_sep= 'â'
+let g:airline_right_sep= 'â'
 
 " In order for Alchemist.vim to find Elixir source files for the
 " jump-to-definition feature, we need to point it to a directory with the
@@ -364,8 +394,8 @@ let g:alchemist#elixir_erlang_src = '/Users/adrianschaedle/github/elixir-lang'
 
 
 " Neovim stuff
-let g:python_host_prog = '/usr/local/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3'
+" let g:python_host_prog = '/usr/local/bin/python'
+" let g:python3_host_prog = '/usr/local/bin/python3'
 
 
 " Run a given vim command on the results of fuzzy selecting from a given shell
@@ -405,10 +435,9 @@ nmap <silent> <leader>a :TestSuite<cr>
 nmap <silent> <leader>l :TestLast<cr>
 nmap <silent> <leader>g :TestVisit<cr>
 
-" <javascript> ------------------------------------------------------------------------
+" Javascript
 let g:javascript_conceal = 1
 let g:javascript_plugin_jsdoc = 1
-" </javascript>
 
 " View the current project's readme
 " command Readme execute '!nd README.md'
@@ -447,10 +476,11 @@ inoremap kj <ESC>
 " :let g:ctrlp_match_window_reversed = 0
 " set ctrlP's working directory to a git root
 let g:ctrlp_working_path_mode = 2
-let g:ctrlp_custom_ignore = '\v[\/](release|node_modules|bower_components|bower|development|build|vendor\/gems|deps|priv|elm-stuff)$'
+let g:ctrlp_custom_ignore = '\v[\/](release|node_modules|bower_components|bower|development|build|vendor\/gems|vendor\/bundle|deps|priv|elm-stuff)$'
 
 
 " Configuration for elm-mode
+let g:polyglot_disabled = ['elm']
 let g:elm_format_autosave = 1
 
 " Controversial...swap colon and semicolon for easier commands
