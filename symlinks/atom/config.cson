@@ -7,6 +7,7 @@
       "linter-write-good"
       "merge-conflicts"
       "linter-jscs"
+      "vim-mode"
     ]
     projectHome: "~/Dropbox/Code"
     telemetryConsent: "no"
@@ -16,6 +17,7 @@
     ]
   editor:
     fontFamily: "\"SF Mono\", \"Inconsolata LGC\", Menlo, Inconsolata, Monaco, fixed-width"
+    fontSize: 15
     invisibles: {}
     scrollPastEnd: true
     softWrap: true
@@ -26,10 +28,16 @@
     expandedWidth: 90
   "language-elm": {}
   linter: {}
+  "linter-ui-default":
+    panelHeight: 69
   "markdown-preview":
     useGitHubStyle: true
   metrics:
     userId: "02d6477dbc6f82995db20f26edb928127c52f989"
+  "prettier-atom":
+    formatOnSaveOptions:
+      enabled: true
+    silenceErrors: true
   react: {}
   "release-notes":
     viewedVersion: "0.95.0"
