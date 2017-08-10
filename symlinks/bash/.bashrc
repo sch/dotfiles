@@ -5,6 +5,8 @@
 # "export PATH=:$PATH:[dir]" will append the path with [dir]
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
+export PATH="~/local/bin:$PATH"
+export PATH="~/.npm-packages/bin:$PATH"
 export PATH="/usr/local/opt/go/libexec/bin:$PATH"
 export PATH="~/.bin:$PATH"
 
@@ -64,7 +66,7 @@ alias repos='tree -L 2 ~/github'
 alias md='mkdir -p'
 
 # Get disk usage including all hidden files for the current directory
-alias usage='du -hs .[^.]* * | sort -h'
+alias sizeup='du -cksh .[!.]* * | sort -h'
 
 alias s='cd ..'     # up one dir
 alias ..='cd ..'
@@ -73,6 +75,11 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
 alias delete-node-modules='find . -name "node_modules" -type d -prune -exec rm -rf "{}" +'
+alias delete-tags='find . -name "tags" -print0 | xargs -0 rm'
+
+# When invoking "tree", there's almost never the need to go back through that
+# list later. Let's page it so it doesn't clutter up the history.
+alias tree='tree | less'
 
 function take() {
     mkdir -p "$1"
