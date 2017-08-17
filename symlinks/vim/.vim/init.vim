@@ -59,6 +59,16 @@ Plug 'tpope/vim-fireplace'
 
 " <neovim>
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+
+" The vim-elm plugin doesn't have a built-in deoplete engine. Since deoplete
+" requires a python script to provide completions, it's a little more involved
+" than some weird vimscript options hash. There's a PR waiting to be merged in
+" for this stuff, but until that happens, this plugin offers the same
+" functionality.
+Plug 'pbogut/deoplete-elm'
+
+
 " Plug 'carlitux/deoplete-ternjs'
 " Plug 'neovim/node-host'
 " Plug 'snoe/nvim-parinfer.js'
@@ -339,6 +349,7 @@ if has('nvim')
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#keyword_patterns = {}
   let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'
+  let g:deoplete#disable_auto_complete = 1
 endif
 
 " Tern setup. Tern usage relies on the tern_for_vim package, which provides
@@ -356,6 +367,7 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_auto_jump=1 " Let Syntastic jump to bad lines on save
 let g:syntastic_javascript_checkers = ['eslint']
 
+
 " Linting
 " with the ale library
 let g:ale_sign_error = '->'
@@ -365,6 +377,7 @@ highlight clear ALEWarningSign
 nmap <silent> <leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <leader>j <Plug>(ale_next_wrap)
 let g:ale_lint_on_text_changed = 'never'
+
 
 " There's an annoying message that pops up all the time using Rubocop affecting
 " code like the following in ERB files:
