@@ -485,11 +485,11 @@ nnoremap <BS> :nohlsearch<CR>
 inoremap kj <ESC>
 
 " Set ctrlP's position to the top
-:let g:ctrlp_match_window_bottom = 0
-" :let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_match_window_bottom = 0
+let g:ctrlp_match_window_reversed = 0
 " set ctrlP's working directory to a git root
 let g:ctrlp_working_path_mode = 2
-let g:ctrlp_custom_ignore = '\v[\/](release|node_modules|bower_components|bower|development|build|vendor\/gems|vendor\/bundle|deps|priv|elm-stuff)$'
+let g:ctrlp_custom_ignore = '\v[\/](release|node_modules|bower_components|bower|development|build|vendor\/gems|vendor\/bundle|deps|priv|elm-stuff|dist)$'
 
 
 " Configuration for elm-mode
