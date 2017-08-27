@@ -75,6 +75,7 @@
         "pup",
         "python",
         "python3",
+        "reattach-to-user-namespace",
         "rlwrap",
         "ruby-install",
         "selecta",
