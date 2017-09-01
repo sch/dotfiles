@@ -144,6 +144,13 @@ function gch() {
   git clone git://github.com/$USER/$1.git
 }
 
+function clone-all-repos-from-organization() {
+  curl -s https://api.github.com/orgs/$1/repos\?per_page\=200 \
+    | grep clone_url \
+    | awk -F '"' '{print $4}' \
+    | xargs -n 1 -P 4 git clone
+}
+
 # Setup a tracking branch from [remote] [branch_name]
 function gbt() {
   git branch --track $2 $1/$2 && git checkout $2
