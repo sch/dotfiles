@@ -376,6 +376,7 @@ highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 nmap <silent> <leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <leader>j <Plug>(ale_next_wrap)
+nmap <silent> <leader>h <Plug>(ale_detail)
 let g:ale_lint_on_text_changed = 'never'
 
 
