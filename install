@@ -18,6 +18,11 @@ ln -Fs ctags ~/.ctags
 # to declare which version of erlang and elixir to run
 ln -Fs tool-versions ~/.tool-versions
 
+# Use bash
+ln -Fs `pwd`/bashrc ~/.bashrc
+ln -Fs `pwd`/bash_profile ~/.bash_profile
+ln -Fs `pwd`/inputrc ~/.inputrc
+
 # Link vim to the home directory and to the config directory that Neovim
 # supports
 ln -Fs `pwd`/vim/init.vim ~/.vimrc

@@ -20,6 +20,9 @@ test -e /usr/local/share/chruby/auto.sh && source /usr/local/share/chruby/auto.s
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 # source /usr/share/autojump/autojump.sh
 
+# . $HOME/.asdf/asdf.sh
+# . $HOME/.asdf/completions/asdf.bash
+
 # if [[ -f $(brew --prefix)/etc/bash_completion ]]; then
 #   source $(brew --prefix)/etc/bash_completion
 # fi
