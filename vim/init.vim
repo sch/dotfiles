@@ -3,7 +3,7 @@
 set nocompatible " Must come first because it changes other options.
 filetype off     " required!
 
-call plug#begin('~/.cider/symlinks/vim/.vim/plugged')
+call plug#begin('~/.vim/plugged')
 
 Plug 'sheerun/vim-polyglot'
 Plug 'othree/html5.vim'
