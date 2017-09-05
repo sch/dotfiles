@@ -1,6 +1,6 @@
 .DS_Store
-!symlinks/vim/.vim/bundle/Vundle.vim
-symlinks/vim/.vim/bundle/*
-symlinks/vim/.vim/plugged/*
-symlinks/vim/.vim/undo/*
+!vim/bundle/Vundle.vim
+vim/bundle/*
+vim/plugged/*
+vim/undo/*
 .netrwhist

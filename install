@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# install - provision a mac with development tools
+
+set -e
+
+cd "$(dirname "$0")"
+
+echo "===> Symlinking configuration files"
+
+mkdir -p ~/.config
+
+# Our global ctags configuration provides helpful info about how to generate
+# tags for project it doesn't normally know how to search
+ln -Fs ctags ~/.ctags
+
+# The package manager ASDF, used for elixir, relies on a file ~/.tool-versions
+# to declare which version of erlang and elixir to run
+ln -Fs tool-versions ~/.tool-versions
+
+# Link vim to the home directory and to the config directory that Neovim
+# supports
+ln -Fs `pwd`/vim/init.vim ~/.vimrc
+ln -Fs `pwd`/vim ~/.vim
+ln -Fs `pwd`/vim ~/.config/nvim
+
+echo "===> Installing homebrew dependencies"
+
+# Homebrew allows us to install dependencies from the "Brewfile" located in in
+# this directory
+brew bundle
+
+# Manage different versions of erlang and elixir with asdf
+asdf plugin-add erlang https://github.com/asdf-vm/asdf-erlang.git
+asdf plugin-add elixir https://github.com/asdf-vm/asdf-elixir.git
+asdf install erlang 20.0
+asdf install elixir 1.5.1
+
