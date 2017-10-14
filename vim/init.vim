@@ -17,6 +17,10 @@ Plug 'andrep/vimacs'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-vinegar'
 
+" The styled-components allows you to write component styles as css in template
+" strings. This plugin applies syntax highlighting for those strings.
+Plug 'styled-components/vim-styled-components'
+
 " Lift some commmon Unix commands into vim-land. This includes things like:
 " Delete, Rename, Chmod, Move, etc
 Plug 'tpope/vim-eunuch'
@@ -84,7 +88,7 @@ Plug 'xolox/vim-misc'
 
 " Gutentags intelligently rebuilds tags in the background. Notable because
 " it's cross-platform, is pure vimscript, and performs incremental generation.
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 
 " Plug 'pbrisbin/html-template-syntax'
 
@@ -125,6 +129,7 @@ Plug 'mtth/scratch.vim'
 " Plug 'godlygeek/csapprox'
 Plug 'junegunn/goyo.vim'
 Plug 'alessandroyorba/despacio'
+Plug 'chriskempson/base16-vim'
 Plug 'junegunn/limelight.vim'
 Plug 'rakr/vim-two-firewatch'
 Plug 'mvader/vim-firewatch'
@@ -377,7 +382,7 @@ highlight clear ALEWarningSign
 nmap <silent> <leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <leader>j <Plug>(ale_next_wrap)
 nmap <silent> <leader>h <Plug>(ale_detail)
-let g:ale_lint_on_text_changed = 'never'
+" let g:ale_lint_on_text_changed = 'never'
 
 
 " There's an annoying message that pops up all the time using Rubocop affecting
