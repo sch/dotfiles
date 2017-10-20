@@ -101,9 +101,10 @@ Plug 'w0rp/ale'
 " Plug 'scrooloose/syntastic'
 
 
+" Typescript plugin that handles syntax
+Plug 'leafgarland/typescript-vim'
 
 Plug 'airblade/vim-rooter'
-Plug 'bclear'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'c9s/bufexplorer'
 Plug 'ervandew/supertab'
@@ -377,12 +378,17 @@ let g:syntastic_javascript_checkers = ['eslint']
 " with the ale library
 let g:ale_sign_error = '->'
 let g:ale_sign_warning = '--'
+let g:ale_fix_on_save = 1
+" let g:ale_lint_on_text_changed = 'never'
+let g:ale_fixers = {
+      \ 'javascript': ['prettier'],
+      \ 'typescript': ['prettier']
+      \ }
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 nmap <silent> <leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <leader>j <Plug>(ale_next_wrap)
 nmap <silent> <leader>h <Plug>(ale_detail)
-" let g:ale_lint_on_text_changed = 'never'
 
 
 " There's an annoying message that pops up all the time using Rubocop affecting
