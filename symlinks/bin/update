@@ -5,7 +5,7 @@ echo "==> Updating Apple software"
 softwareupdate --install --all
 
 echo "==> Updating Homebrew packages"
-brew update && brew upgrade --all && brew cleanup
+brew update && brew upgrade && brew cleanup
 
 echo "==> Updating NPM"
 npm update -g npm
