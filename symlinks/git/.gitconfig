@@ -11,7 +11,7 @@
 	staged = diff --staged
 	delete-merged = !git branch --merged | grep -v \"\\*\" | xargs -n 1 git branch -d
 	one-more-thing = !git add . && git amend && git push --force
-	switch = !git branch | cut -c 3- | selecta | xargs git checkout
+	switch = !git branches | cut -c 3- | selecta | xargs git checkout
 	copy-head = !git rev-parse --short HEAD | pbcopy
 
 [color]
