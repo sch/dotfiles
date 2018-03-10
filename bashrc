@@ -80,10 +80,6 @@ alias .....='cd ../../../..'
 alias delete-node-modules='find . -name "node_modules" -type d -prune -exec rm -rf "{}" +'
 alias delete-tags='find . -name "tags" -print0 | xargs -0 rm'
 
-# When invoking "tree", there's almost never the need to go back through that
-# list later. Let's page it so it doesn't clutter up the history.
-alias tree='tree | less'
-
 function take() {
     mkdir -p "$1"
     cd "$1"
@@ -230,8 +226,8 @@ function __rm_single_file(){
 
 # https://gist.github.com/3310173
 function serve(){
-  python -m SimpleHTTPServer 8080 &> /dev/null &
   open http://localhost:8080/
+  python -m SimpleHTTPServer 8080
 }
 
 # Print path, one line at a time
