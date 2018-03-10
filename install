@@ -29,6 +29,9 @@ ln -Fs `pwd`/vim/init.vim ~/.vimrc
 ln -Fs `pwd`/vim ~/.vim
 ln -Fs `pwd`/vim ~/.config/nvim
 
+# Karabiner allows for user-defined keyboard mapping
+ln -Fs `pwd`/config/karaibner ~/.config/karabiner
+
 echo "===> Installing homebrew dependencies"
 
 # Homebrew allows us to install dependencies from the "Brewfile" located in in
