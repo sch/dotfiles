@@ -3,9 +3,12 @@
 set nocompatible " Must come first because it changes other options.
 filetype off     " required!
 
-call plug#begin('~/.vim/plugged')
+if has('nvim')
+  call plug#begin('~/.local/share/nvim/plugged')
+else
+  call plug#begin('~/.vim/plugged')
+endif
 
-Plug 'sheerun/vim-polyglot'
 Plug 'othree/html5.vim'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
@@ -61,8 +64,22 @@ Plug 'marijnh/tern_for_vim'
 
 Plug 'tpope/vim-fireplace'
 
+" Syntax highlighting for some of postgres' more esoteric features
+Plug 'lifepillar/pgsql.vim'
+
+" Syntax support for the crystal language
+Plug 'rhysd/vim-crystal'
+
 " <neovim>
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" A very minimal completion plugin that maps the tab key to keyword, file, and
+" omni completion depending on the context.
+Plug 'ajh17/VimCompletesMe'
+
+" vimproc uses an external DLL file to allow for async execution of jobs from
+" within vim. This is mostly needed for tsuquyomi
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
 
 " The vim-elm plugin doesn't have a built-in deoplete engine. Since deoplete
@@ -104,6 +121,13 @@ Plug 'w0rp/ale'
 " Typescript plugin that handles syntax
 Plug 'leafgarland/typescript-vim'
 
+
+" Typescript plugin that has all the IDE bells and whistles
+Plug 'Quramy/tsuquyomi'
+
+" ...except for this plugin, which handles typescript autocompletion
+Plug 'mhartington/nvim-typescript'
+
 Plug 'airblade/vim-rooter'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'c9s/bufexplorer'
@@ -129,7 +153,8 @@ Plug 'mtth/scratch.vim'
 " keeping up appearances
 " Plug 'godlygeek/csapprox'
 Plug 'junegunn/goyo.vim'
-Plug 'alessandroyorba/despacio'
+Plug 'alessandroyorba/despacio', { 'commit': '75f094caa8c561d17544c416689fdd8afda8d026' }
+" Plug 'tertium/Despacio'
 Plug 'chriskempson/base16-vim'
 Plug 'junegunn/limelight.vim'
 Plug 'rakr/vim-two-firewatch'
@@ -138,6 +163,13 @@ Plug 'clinstid/eink.vim'
 
 " ia writer-inspired theme
 Plug 'reedes/vim-colors-pencil'
+
+Plug 'vim-scripts/256-grayvim'
+
+
+" We run vim-polyglot, a meta-package that provides a-la-carte syntax
+" highlighting for many more languages than Vim has built-in
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -179,6 +211,9 @@ set hlsearch                      " Highlight matches.
 
 " set grepprg=ack\ -a
 
+" use 'K' to search for the word under the cursor
+nnoremap K :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
+
 set number                        " Show line numbers.
 if v:version >= 704
   set relativenumber              " Also show relative line numbers
@@ -205,11 +240,21 @@ set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-set background=dark
+set t_Co=256
+
+set termguicolors
+" set background=dark
 let g:despacio_Campfire = 0
-let g:despacio_Twilight = 1
-let g:despacio_Midnight = 0
+let g:despacio_Twilight = 0
+let g:despacio_Midnight = 1
+let g:despacio_Pitch = 0
 colorscheme despacio
+
+
+" if filereadable(expand("~/.vimrc_background"))
+"   let base16colorspace=256
+  " source ~/.vimrc_background
+" endif
 
 set visualbell t_vb=              " No beeping
 
@@ -355,7 +400,7 @@ if has('nvim')
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#keyword_patterns = {}
   let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'
-  let g:deoplete#disable_auto_complete = 1
+  " let g:deoplete#disable_auto_complete = 1
 endif
 
 " Tern setup. Tern usage relies on the tern_for_vim package, which provides
@@ -373,6 +418,8 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_auto_jump=1 " Let Syntastic jump to bad lines on save
 let g:syntastic_javascript_checkers = ['eslint']
 
+" Format crystal files on save
+let g:crystal_auto_format=1
 
 " Linting
 " with the ale library
@@ -382,7 +429,8 @@ let g:ale_fix_on_save = 1
 " let g:ale_lint_on_text_changed = 'never'
 let g:ale_fixers = {
       \ 'javascript': ['prettier'],
-      \ 'typescript': ['prettier']
+      \ 'typescript': ['prettier'],
+      \ 'css': ['prettier'],
       \ }
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
@@ -390,6 +438,8 @@ nmap <silent> <leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <leader>j <Plug>(ale_next_wrap)
 nmap <silent> <leader>h <Plug>(ale_detail)
 
+" Disable tsuquyomi's quickfix window in favor of ale's
+let g:tsuquyomi_disable_quickfix = 1
 
 " There's an annoying message that pops up all the time using Rubocop affecting
 " code like the following in ERB files:
@@ -493,15 +543,13 @@ nnoremap <leader>w <C-w>v<C-w>l
 " Remove highlighted searches with delete
 nnoremap <BS> :nohlsearch<CR>
 
-" Escape normal mode quicker
-inoremap kj <ESC>
-
 " Set ctrlP's position to the top
 let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_match_window_reversed = 0
 " set ctrlP's working directory to a git root
 let g:ctrlp_working_path_mode = 2
-let g:ctrlp_custom_ignore = '\v[\/](release|node_modules|bower_components|bower|development|build|vendor\/gems|vendor\/bundle|deps|priv|elm-stuff|dist)$'
+let g:ctrlp_custom_ignore = '\v[\/](release|node_modules|bower_components|bower|development|build|vendor\/gems|vendor\/bundle|deps|priv|elm-stuff|dist|module)$'
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 
 
 " Configuration for elm-mode
