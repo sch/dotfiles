@@ -1,0 +1,13 @@
+--colors=path:none
+--colors=path:fg:black
+--colors=path:style:underline
+
+--colors=line:none
+--colors=line:fg:black
+
+--colors=column:none
+--colors=column:fg:black
+
+--colors=match:none
+--colors=match:bg:yellow
+--colors=match:fg:black
