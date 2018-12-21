@@ -43,18 +43,23 @@ Plug 'elixir-lang/vim-elixir'
 " Has a python dependency on alchemist_client
 Plug 'slashmili/alchemist.vim'
 
+" Community-contributed snippets for various language idioms
+Plug 'honza/vim-snippets'
+
 " Syntax highlighting, completion, and build tools for elm
 Plug 'ElmCast/elm-vim'
 
 " Seamlessly navigate between tmux panes and vim panes:
 Plug 'christoomey/vim-tmux-navigator'
 
+" title-case text with 'gt'
+Plug 'christoomey/vim-titlecase'
+
 Plug 'guns/vim-sexp'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'chrisbra/NrrwRgn'
 Plug 'justinmk/vim-dirvish'
-Plug 'danro/rename.vim'
 
 " Standardized test running interface
 Plug 'janko-m/vim-test'
@@ -70,8 +75,11 @@ Plug 'lifepillar/pgsql.vim'
 " Syntax support for the crystal language
 Plug 'rhysd/vim-crystal'
 
-" <neovim>
+" Text completion for neovim
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" Load snippets into deoplete completion menu
+Plug 'SirVer/ultisnips'
 
 " A very minimal completion plugin that maps the tab key to keyword, file, and
 " omni completion depending on the context.
@@ -89,6 +97,8 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 " functionality.
 Plug 'pbogut/deoplete-elm'
 
+" This one lets your build colorschemes out of high-level specs
+Plug 'lifepillar/vim-colortemplate'
 
 " Plug 'carlitux/deoplete-ternjs'
 " Plug 'neovim/node-host'
@@ -100,15 +110,20 @@ Plug 'pbogut/deoplete-elm'
 " Plug 'neomake/neomake'
 " </neovim>
 
+" Parinfer in pure vim script
+Plug 'bhurlow/vim-parinfer'
+
 Plug 'xolox/vim-misc'
 " Plug 'majutsushi/tagbar'
 
 " Gutentags intelligently rebuilds tags in the background. Notable because
 " it's cross-platform, is pure vimscript, and performs incremental generation.
-" Plug 'ludovicchabant/vim-gutentags'
+Plug 'ludovicchabant/vim-gutentags'
 
 " Plug 'pbrisbin/html-template-syntax'
 
+" Jenkinsfile setup
+Plug 'martinda/Jenkinsfile-vim-syntax'
 
 
 " Ale is an autocompletion framework designed for neovim/vim8 that doesn't
@@ -117,16 +132,17 @@ Plug 'xolox/vim-misc'
 Plug 'w0rp/ale'
 " Plug 'scrooloose/syntastic'
 
-
 " Typescript plugin that handles syntax
 Plug 'leafgarland/typescript-vim'
-
 
 " Typescript plugin that has all the IDE bells and whistles
 Plug 'Quramy/tsuquyomi'
 
 " ...except for this plugin, which handles typescript autocompletion
-Plug 'mhartington/nvim-typescript'
+" Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
+
+" this plugin auto-completes JSON documents based on info from schemastore.org
+Plug 'Quramy/vison'
 
 Plug 'airblade/vim-rooter'
 Plug 'bronson/vim-trailing-whitespace'
@@ -136,18 +152,36 @@ Plug 'godlygeek/tabular'
 Plug 'jpalardy/vim-slime'
 Plug 'sjl/gundo.vim'
 Plug 'thoughtbot/vim-rspec'
+
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-commentary'
+
+" Common navigational mappings
+Plug 'tpope/vim-unimpaired'
+"
+" Easy git
 Plug 'tpope/vim-fugitive'
+" Easy github
+Plug 'tpope/vim-rhubarb'
+
+" Jump around in the style of rails vim, but with any file.
+Plug 'tpope/vim-projectionist'
+
 Plug 'tpope/vim-liquid'
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-rails'
-Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
+
+" Run Rake commands
+Plug 'tpope/vim-rake'
+
 " Plug 'vim-scripts/paredit.vim'
 Plug 'rizzatti/funcoo.vim'
 Plug 'rizzatti/dash.vim'
-Plug 'rking/ag.vim'
+
+" Deprecated silver searcher (grep) plugin
+" Plug 'rking/ag.vim'
+
 Plug 'mtth/scratch.vim'
 
 " keeping up appearances
@@ -161,8 +195,28 @@ Plug 'rakr/vim-two-firewatch'
 Plug 'mvader/vim-firewatch'
 Plug 'clinstid/eink.vim'
 
+" Add fzf fuzzy finder to runtime path
+Plug '/usr/local/opt/fzf'
+
+" Fuzzy matching presets
+Plug 'junegunn/fzf.vim'
+
+" Shoji light theme
+Plug 'nightsense/shoji'
+
+" As close as it gets
+Plug 'albertorestifo/github.vim'
+
+" Calm grey themes
+Plug 'nightsense/vrunchbang'
+
 " ia writer-inspired theme
 Plug 'reedes/vim-colors-pencil'
+
+" Vim themes by default define hex codes to provide color vlaues. This plugin
+" is a vanilla vim theme that allows your terminal's 16-color scheme to define
+" those colors.
+Plug 'noahfrederick/vim-noctu'
 
 Plug 'vim-scripts/256-grayvim'
 
@@ -212,7 +266,7 @@ set hlsearch                      " Highlight matches.
 " set grepprg=ack\ -a
 
 " use 'K' to search for the word under the cursor
-nnoremap K :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
+" nnoremap K :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 set number                        " Show line numbers.
 if v:version >= 704
@@ -231,8 +285,18 @@ set lazyredraw
 set title                         " Set the terminal's title
 set laststatus=2                  " Show the status line all the time
 
+" Open new split panes more naturally.
 set splitbelow
 set splitright
+
+" This changes the character used for separating panels from one another.
+" The default | character is not tall enough to make a continuous line for
+" a terminal font line height of 1, so we use a unicode character to extend the
+" whole way.
+" set fillchars+=vert:│
+
+" Just turn off the panel separator altogether.
+set fillchars=""
 
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
@@ -242,13 +306,15 @@ set statusline+=%*
 
 set t_Co=256
 
-set termguicolors
-" set background=dark
-let g:despacio_Campfire = 0
-let g:despacio_Twilight = 0
-let g:despacio_Midnight = 1
-let g:despacio_Pitch = 0
-colorscheme despacio
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+set background=dark
+" let g:despacio_Midnight = 1
+" colorscheme despacio
+" colorscheme shoji_niji
+colorscheme github
 
 
 " if filereadable(expand("~/.vimrc_background"))
@@ -308,8 +374,6 @@ if has('autocmd')
   filetype on
 
   autocmd FileType asm    setlocal ts=4 sts=0 sw=0 noexpandtab
-
-  " The Rubyish family of languges that prefer 2-space indentation
   autocmd FileType html   setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType css    setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType scss   setlocal ts=2 sts=2 sw=2 expandtab
@@ -318,10 +382,10 @@ if has('autocmd')
   autocmd FileType yaml   setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType coffee setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType vim    setlocal ts=2 sts=2 sw=2 expandtab
-
-  " Things that I'd prefer to be 4 spaces
   autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType elm    setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType groovy setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType Jenkinsfile setlocal ts=4 sts=4 sw=4 expandtab
   autocmd FileType go     setlocal tabstop=4
 
   " autocmd FileType ruby :Abolish -buffer initialise initialize
@@ -383,9 +447,11 @@ vmap <tab> %
 nnoremap <leader>1 yypVr=
 nnoremap <leader>2 yypVr-
 
-" Some helpers to edit mode
-" http://vimcasts.org/e/14
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
+" Some helpers to edit mode (thanks to http://vimcasts.org/e/14)
+" %% gets expanded into the head path of the current file
+cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
+" Expanding %% while editing /path/to/foo.txt will drop you into a file browser
+" pointing to /path/to/, regardless of the cwd of the current session
 map <leader>e :e %%
 map <leader>es :sp %%
 
@@ -426,12 +492,11 @@ let g:crystal_auto_format=1
 let g:ale_sign_error = '->'
 let g:ale_sign_warning = '--'
 let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
 " let g:ale_lint_on_text_changed = 'never'
-let g:ale_fixers = {
-      \ 'javascript': ['prettier'],
-      \ 'typescript': ['prettier'],
-      \ 'css': ['prettier'],
-      \ }
+
+command! ALEToggleFixer execute "let g:ale_fix_on_save = get(g:, 'ale_fix_on_save', 0) ? 0 : 1"
+
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 nmap <silent> <leader>k <Plug>(ale_previous_wrap)
@@ -440,6 +505,9 @@ nmap <silent> <leader>h <Plug>(ale_detail)
 
 " Disable tsuquyomi's quickfix window in favor of ale's
 let g:tsuquyomi_disable_quickfix = 1
+
+" bind
+autocmd FileType typescript nmap <buffer> <leader>m : <C-u>echo tsuquyomi#hint()<CR>
 
 " There's an annoying message that pops up all the time using Rubocop affecting
 " code like the following in ERB files:
@@ -510,6 +578,22 @@ nmap <silent> <leader>a :TestSuite<cr>
 nmap <silent> <leader>l :TestLast<cr>
 nmap <silent> <leader>g :TestVisit<cr>
 
+
+" Run a given vim command on the results of alt from a given path.
+" See usage below.
+function! AltCommand(path, vim_command)
+  let l:alternate = system("alt " . a:path)
+  if empty(l:alternate)
+    echo "No alternate file for " . a:path . " exists!"
+  else
+    exec a:vim_command . " " . l:alternate
+  endif
+endfunction
+
+" Find the alternate file for the current path and open it
+nnoremap <leader>. :w<cr>:call AltCommand(expand('%'), ':e')<cr>
+
+
 " Javascript
 let g:javascript_conceal = 1
 let g:javascript_plugin_jsdoc = 1
@@ -551,6 +635,34 @@ let g:ctrlp_working_path_mode = 2
 let g:ctrlp_custom_ignore = '\v[\/](release|node_modules|bower_components|bower|development|build|vendor\/gems|vendor\/bundle|deps|priv|elm-stuff|dist|module)$'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 
+" Make FZF match the colors for Github colorscheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Special'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Constant'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+" Show files with preview while searching
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 " Configuration for elm-mode
 let g:polyglot_disabled = ['elm']
@@ -566,8 +678,9 @@ vnoremap ; :
 let g:limelight_conceal_ctermfg = 'darkgray'
 
 function! s:goyo_enter()
-  silent !tmux-next set status off
-  silent !tmux-next list-panes -F '\#F' | grep -q Z || tmux-next resize-pane -Z
+  silent !tmux set status off
+  silent !tmux list-panes -F '\#F' | grep -q Z || tmux-next resize-pane -Z
+  set listchars=
   set noshowmode
   set noshowcmd
   set scrolloff=999
@@ -575,8 +688,9 @@ function! s:goyo_enter()
 endfunction
 
 function! s:goyo_leave()
-  silent !tmux-next set status on
-  silent !tmux-next list-panes -F '\#F' | grep -q Z && tmux-next resize-pane -Z
+  silent !tmux set status on
+  silent !tmux list-panes -F '\#F' | grep -q Z && tmux-next resize-pane -Z
+  set listchars=tab:▸\ ,eol:¬
   set showmode
   set showcmd
   set scrolloff=5
