@@ -1,0 +1,63 @@
+#!/usr/bin/env ruby
+
+require "fileutils"
+
+class Repository
+  REGEXP = %r{
+        (?<protocol>(http://|https://|git://|ssh://))*
+        (?<username>[^@]+@)*
+        (?<host>[^/]+)
+        [/:]
+        (?<user>[^/]+)
+        /
+        (?<repo>[^/.]+)
+      }x
+
+  def initialize(git_url)
+    match = git_url.match(REGEXP)
+    @user = match[:user]
+    @repo = match[:repo]
+  end
+
+  def valid?
+    !@user.nil? && !@repo.nil?
+  end
+
+  def url
+    "git@github.com:#{@user}/#{@repo}.git"
+  end
+
+  def exists?
+    Dir.exist? directory
+  end
+
+  def user_directory
+    File.expand_path("~/github/#{@user}")
+  end
+
+  def directory
+    File.expand_path("~/github/#{@user}/#{@repo}")
+  end
+
+  def download
+    unless exists?
+      FileUtils.mkdir_p user_directory
+      Dir.chdir(user_directory) do
+        system("git clone #{url}")
+      end
+    end
+
+    directory
+  end
+end
+
+url = ARGV[0]
+repo = Repository.new(url)
+
+if repo.valid?
+  directory = repo.download
+  Dir.chdir directory
+  exec "bash"
+else
+  puts "\"#{ARGV[0]}\" is not a valid git repo"
+end
