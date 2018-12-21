@@ -3,3 +3,5 @@
 " a tag file from vim.
 
 :map <buffer> <C-]> :TernDef<cr>
+
+let b:ale_fixers = ['prettier']
