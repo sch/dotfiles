@@ -27,6 +27,10 @@ test -e /usr/local/share/chruby/auto.sh && source /usr/local/share/chruby/auto.s
 #   source $(brew --prefix)/etc/bash_completion
 # fi
 
+if [ -f /usr/local/etc/bash_completion.d ]; then
+  . /usr/local/etc/bash_completion.d
+fi
+
 test -e opam && eval $(opam config env)
 # . /home/adrian/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
