@@ -38,14 +38,13 @@ test -e opam && eval $(opam config env)
 #   eval "$(docker-machine env default)"
 # fi
 
-
 VCPROMPT_FORMAT='[%b:%r]'
 PS1="\W \$(vcprompt) ● "
 
 eval "$(direnv hook bash)" # Must come last
 
 # Utility
-alias edit-config='vim ~/.bashrc && reload' # Edit aliases
+alias edit-config='$EDITOR ~/.bashrc && echo "Reloading shell..." && reload' # Edit aliases
 
 # Resets of various kinds
 alias reload='source ~/.bashrc'
