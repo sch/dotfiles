@@ -84,8 +84,8 @@ alias delete-node-modules='find . -name "node_modules" -type d -prune -exec rm -
 alias delete-tags='find . -name "tags" -print0 | xargs -0 rm'
 
 function take() {
-    mkdir -p "$1"
-    cd "$1"
+  mkdir -p "$1"
+  cd "$1"
 }
 
 prettypath() {
@@ -94,10 +94,13 @@ prettypath() {
 }
 
 alias e='exit'
+
 alias k9="killall -9"
+
 function killnamed () {
   ps ax | grep $1 | cut -d ' ' -f 2 | xargs kill
 }
+
 function zipr() {
   zip -r $1.zip $1
 }
@@ -107,8 +110,12 @@ function pless() {
   pygmentize $1 | less -r
 }
 
-repo() {
+function repo() {
   cd $(find ~/github -maxdepth 2 -type d | selecta)
+}
+
+function gofind() {
+  cd $(find ~/golang/src -maxdepth 3 -type d | selecta)
 }
 
 # Processes
