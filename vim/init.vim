@@ -254,6 +254,9 @@ set wildmode=list:longest,full    " Complete files like a shell.
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*/_site/*,*/_build/*
 set wildignore+=*.png,*.jpg
 
+" tab-complete files without worrying about uppercase or lowercase letters
+set wildignorecase
+
 " use regex in search
 nnoremap / /\v
 vnoremap / /\v
