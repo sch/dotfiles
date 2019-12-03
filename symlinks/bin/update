@@ -11,6 +11,6 @@ echo "==> Updating NPM"
 npm update -g npm
 
 echo "==> Updating Vim plugins"
-vim +PlugUpdate! +qall
+nvim +PlugUpdate! +qall
 
 echo "==> Done!"
