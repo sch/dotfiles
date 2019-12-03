@@ -74,7 +74,6 @@ alias md='mkdir -p'
 # Get disk usage including all hidden files for the current directory
 alias sizeup='du -cksh .[!.]* * | sort -h'
 
-alias s='cd ..'     # up one dir
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -93,7 +92,6 @@ prettypath() {
   echo $PATH | tr -s ':' '\n'
 }
 
-alias e='exit'
 
 alias k9="killall -9"
 
