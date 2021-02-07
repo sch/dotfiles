@@ -251,3 +251,5 @@ function gittag(){
   git tag -a ${date} -m $1
   git push --tags
 }
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
