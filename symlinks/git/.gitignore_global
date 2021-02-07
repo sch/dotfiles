@@ -62,3 +62,6 @@ tags
 
 # envrc
 .envrc
+
+# Dumping ground in every app for ad-hoc SQL queries
+scratch.sql
