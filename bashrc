@@ -1,19 +1,3 @@
-# Set PATH, CDPATH, EDITOR, etc.
-#
-# When setting the path, you use "export PATH=" then the dir
-# "export PATH=[dir]:$PATH" will prepend the path with [dir]
-# "export PATH=:$PATH:[dir]" will append the path with [dir]
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/bin:$PATH"
-export PATH="~/local/bin:$PATH"
-export PATH="~/.npm-packages/bin:$PATH"
-export PATH="/usr/local/opt/go/libexec/bin:$PATH"
-export PATH="~/.bin:$PATH"
-
-export GOPATH=$HOME/golang
-# export GOROOT=/usr/local/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-
 test -e /usr/local/share/chruby/chruby.sh && source /usr/local/share/chruby/chruby.sh
 test -e /usr/local/share/chruby/auto.sh && source /usr/local/share/chruby/auto.sh
 
