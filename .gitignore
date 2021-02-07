@@ -4,3 +4,4 @@ vim/bundle/*
 vim/plugged/*
 vim/undo/*
 .netrwhist
+config/karabiner/automatic_backups/*
