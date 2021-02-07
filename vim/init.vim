@@ -213,10 +213,15 @@ Plug 'nightsense/vrunchbang'
 " ia writer-inspired theme
 Plug 'reedes/vim-colors-pencil'
 
+
 " Vim themes by default define hex codes to provide color vlaues. This plugin
 " is a vanilla vim theme that allows your terminal's 16-color scheme to define
 " those colors.
 Plug 'noahfrederick/vim-noctu'
+
+" Similar to Noctu, this theme extends the default vim colorscheme with more
+" muted colors to allow re-use of terminal-defined colors
+Plug 'jeffkreeftmeijer/vim-dim'
 
 Plug 'vim-scripts/256-grayvim'
 
