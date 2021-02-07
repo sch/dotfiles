@@ -20,6 +20,9 @@ Plug 'andrep/vimacs'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-vinegar'
 
+" Resize unfocused windows when everything can't fit on a single screen
+Plug 'roman/golden-ratio'
+
 " The styled-components allows you to write component styles as css in template
 " strings. This plugin applies syntax highlighting for those strings.
 Plug 'styled-components/vim-styled-components'
@@ -359,14 +362,6 @@ set showmatch                     " set show matching parenthesis
 set smarttab                      " insert tabs on the start of a line according to
                                   " shiftwidth, not tabstop
 set clipboard+=unnamedplus        " Access clipboard universally
-
-" <window sizing>
-set winwidth=89
-set winminwidth=30
-" set winheight=5
-" set winminheight=5
-" set winheight=9999
-" </window sizing>
 
 " Scroll the opposite window
 nmap <a-y> <c-w>w<c-y><c-w>w
