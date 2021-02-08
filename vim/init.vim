@@ -274,6 +274,14 @@ set smartcase                     " But case-sensitive if expression contains a 
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
 
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
 " set grepprg=ack\ -a
 
 " use 'K' to search for the word under the cursor
@@ -317,21 +325,19 @@ set statusline+=%*
 
 set t_Co=256
 
-if (has("termguicolors"))
+" termguicolors should only be set while in tmux
+"
+" https://github.com/vim/vim/issues/3500
+"
+if has("termguicolors") && exists("$TMUX")
   set termguicolors
 endif
 
-set background=dark
+
+set background=light
 " let g:despacio_Midnight = 1
-" colorscheme despacio
-" colorscheme shoji_niji
 colorscheme github
 
-
-" if filereadable(expand("~/.vimrc_background"))
-"   let base16colorspace=256
-  " source ~/.vimrc_background
-" endif
 
 set visualbell t_vb=              " No beeping
 
@@ -413,11 +419,6 @@ if has('autocmd')
 endif
 
 let mapleader = ","                "easier leader
-" Speed up buffer switching
-" map <C-k> <C-W>k
-" map <C-j> <C-W>j
-" map <C-h> <C-W>h
-" map <C-l> <C-W>l
 
 " be unforgiving about using arrow keys
 inoremap  <Up>     <NOP>
@@ -440,8 +441,8 @@ nnoremap k gk
 nnoremap Y y$
 
 " tab -> nearest enclosure
-nmap <tab> %
-vmap <tab> %
+" nmap <tab> %
+" vmap <tab> %
 
 " Clear highlighted search
 " nmap <silent> <leader>/ :nohlsearch<CR>
@@ -490,21 +491,79 @@ let g:syntastic_javascript_checkers = ['eslint']
 " Format crystal files on save
 let g:crystal_auto_format=1
 
+" Vim language server configuration
+
+" let g:lsc_auto_map = v:true
+
+let g:lsc_server_commands = {}
+let g:lsc_server_commands.python = 'pyls'
+let g:lsc_server_commands.typescript = 'typescript-language-server --stdio'
+let g:lsc_server_commands.typescriptreact = 'typescript-language-server --stdio'
+
+" Set up vim-lsc to use the default keybindings
+"
+" - GoToDefinition        <C-]>
+" - GoToDefinitionSplit   <C-W><C-]>
+" - FindReferences        gr
+" - NextReference         <C-n>
+" - PreviousReference     <C-p>
+" - FindImplementations   gI
+" - FindCodeActions       ga
+" - Rename                gR
+" - DocumentSymbol        go
+" - WorkspaceSymbol       gS
+" - SignatureHelp         gm
+" - Completion            completefunc
+"
+let g:lsc_auto_map = {}
+let g:lsc_auto_map.defaults = v:true
+let g:lsc_auto_map.PreviousReference = '' " Disable default (ctrl-p) for fuzzy finding
+
+nmap <silent> <leader>h :LSClientLineDiagnostics<CR>
+
+highlight Cursor guifg=white
+
 " Linting
 " with the ale library
+let g:ale_linters = { 'elm': ['elm_ls'] }
 let g:ale_sign_error = '->'
 let g:ale_sign_warning = '--'
-let g:ale_fix_on_save = 1
-let g:ale_completion_enabled = 1
+let g:ale_fix_on_save = 0
+" let g:ale_completion_enabled = 1
 " let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_insert_leave = 1
+
+let g:ale_fixers = {
+\   'javascript': ['prettier'],
+\   'css': ['prettier'],
+\   'html': ['prettier'],
+\}
 
 command! ALEToggleFixer execute "let g:ale_fix_on_save = get(g:, 'ale_fix_on_save', 0) ? 0 : 1"
 
+
+
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
-nmap <silent> <leader>k <Plug>(ale_previous_wrap)
-nmap <silent> <leader>j <Plug>(ale_next_wrap)
-nmap <silent> <leader>h <Plug>(ale_detail)
+" nmap <silent> <leader>k <Plug>(ale_previous_wrap)
+" nmap <silent> <leader>j <Plug>(ale_next_wrap)
+" nmap <silent> <leader>h <Plug>(ale_detail)
+
+
+
+" Some setup for coc.vim --- there aren't any defualt values in that project
+" nmap <silent> <leader>k <Plug>(coc-diagnostic-prev)
+" nmap <silent> <leader>j <Plug>(coc-diagnostic-next)
+" nmap <silent> <leader>h <Plug>(coc-diagnostic-info)
+" nmap <silent> gd <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+" nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gr <Plug>(coc-references)
+" xmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format-selected)
+
+" command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
 " Disable tsuquyomi's quickfix window in favor of ale's
 let g:tsuquyomi_disable_quickfix = 1
@@ -616,7 +675,7 @@ vmap Q gq
 nmap Q gqap
 
 " Jump quickly between open files with <return>
-nnoremap <return> :BufExplorer<cr>
+nnoremap <space> :BufExplorer<cr>
 
 " open up Marked
 " nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
@@ -668,13 +727,7 @@ command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 " Configuration for elm-mode
-let g:polyglot_disabled = ['elm']
 let g:elm_format_autosave = 1
-
-" Controversial...swap colon and semicolon for easier commands
-nnoremap ; :
-vnoremap ; :
-" nb: don't remap ; because it breaks plugins
 
 
 " Limelight can't always infer from a theme what color to make darkened text
