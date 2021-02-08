@@ -14,7 +14,7 @@ Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'flowtype/vim-flow'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } " vim-polyglot gives us syntax, but none of the sugar
+" Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } " vim-polyglot gives us syntax, but none of the sugar
 Plug 'Lokaltog/vim-easymotion'
 Plug 'andrep/vimacs'
 Plug 'tpope/vim-rsi'
@@ -50,7 +50,13 @@ Plug 'slashmili/alchemist.vim'
 Plug 'honza/vim-snippets'
 
 " Syntax highlighting, completion, and build tools for elm
-Plug 'ElmCast/elm-vim'
+" This project stopped being maintained for 0.19:
+" Plug 'ElmCast/elm-vim'
+" This fork seems to be keeping up well:
+" Plug 'Zaptic/elm-vim'
+" But let's instead just use syntax highlighting and use the language server
+" for everything else:
+Plug 'andys8/vim-elm-syntax'
 
 " Seamlessly navigate between tmux panes and vim panes:
 Plug 'christoomey/vim-tmux-navigator'
@@ -68,7 +74,9 @@ Plug 'justinmk/vim-dirvish'
 Plug 'janko-m/vim-test'
 
 Plug 'davidhalter/jedi-vim'
-Plug 'marijnh/tern_for_vim'
+
+" Auto-format python code
+Plug 'ambv/black'
 
 Plug 'tpope/vim-fireplace'
 
@@ -78,40 +86,12 @@ Plug 'lifepillar/pgsql.vim'
 " Syntax support for the crystal language
 Plug 'rhysd/vim-crystal'
 
-" Text completion for neovim
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
-" Load snippets into deoplete completion menu
-Plug 'SirVer/ultisnips'
-
-" A very minimal completion plugin that maps the tab key to keyword, file, and
-" omni completion depending on the context.
-Plug 'ajh17/VimCompletesMe'
-
 " vimproc uses an external DLL file to allow for async execution of jobs from
 " within vim. This is mostly needed for tsuquyomi
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
-
-" The vim-elm plugin doesn't have a built-in deoplete engine. Since deoplete
-" requires a python script to provide completions, it's a little more involved
-" than some weird vimscript options hash. There's a PR waiting to be merged in
-" for this stuff, but until that happens, this plugin offers the same
-" functionality.
-Plug 'pbogut/deoplete-elm'
-
 " This one lets your build colorschemes out of high-level specs
 Plug 'lifepillar/vim-colortemplate'
-
-" Plug 'carlitux/deoplete-ternjs'
-" Plug 'neovim/node-host'
-" Plug 'snoe/nvim-parinfer.js'
-" Plug 'clojure-vim/async-clj-omni'
-
-" Neomake provides async glue for running periodic jobs like linting or
-" compiling in Neovim.
-" Plug 'neomake/neomake'
-" </neovim>
 
 " Parinfer in pure vim script
 Plug 'bhurlow/vim-parinfer'
@@ -121,28 +101,21 @@ Plug 'xolox/vim-misc'
 
 " Gutentags intelligently rebuilds tags in the background. Notable because
 " it's cross-platform, is pure vimscript, and performs incremental generation.
-Plug 'ludovicchabant/vim-gutentags'
-
-" Plug 'pbrisbin/html-template-syntax'
-
-" Jenkinsfile setup
-Plug 'martinda/Jenkinsfile-vim-syntax'
-
+" Plug 'ludovicchabant/vim-gutentags'
 
 " Ale is an autocompletion framework designed for neovim/vim8 that doesn't
 " really have any configuration. It replaces syntastic, so we can leave that
 " around if ale doesn't prove successful.
-Plug 'w0rp/ale'
-" Plug 'scrooloose/syntastic'
+" Plug 'dense-analysis/ale'
+
+" Pure-vim language server client
+Plug 'natebosch/vim-lsc'
 
 " Typescript plugin that handles syntax
 Plug 'leafgarland/typescript-vim'
 
-" Typescript plugin that has all the IDE bells and whistles
-Plug 'Quramy/tsuquyomi'
-
-" ...except for this plugin, which handles typescript autocompletion
-" Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
+" Color z80/gameboy asm correctly
+Plug 'samsaga2/vim-z80'
 
 " this plugin auto-completes JSON documents based on info from schemastore.org
 Plug 'Quramy/vison'
@@ -150,7 +123,7 @@ Plug 'Quramy/vison'
 Plug 'airblade/vim-rooter'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'c9s/bufexplorer'
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'jpalardy/vim-slime'
 Plug 'sjl/gundo.vim'
@@ -164,8 +137,12 @@ Plug 'tpope/vim-unimpaired'
 "
 " Easy git
 Plug 'tpope/vim-fugitive'
+
 " Easy github
 Plug 'tpope/vim-rhubarb'
+
+" Pop open bitbucket links when using Fugitive's GBrowse command
+Plug 'tommcdo/vim-fubitive'
 
 " Jump around in the style of rails vim, but with any file.
 Plug 'tpope/vim-projectionist'
@@ -187,35 +164,19 @@ Plug 'rizzatti/dash.vim'
 
 Plug 'mtth/scratch.vim'
 
-" keeping up appearances
-" Plug 'godlygeek/csapprox'
-Plug 'junegunn/goyo.vim'
-Plug 'alessandroyorba/despacio', { 'commit': '75f094caa8c561d17544c416689fdd8afda8d026' }
-" Plug 'tertium/Despacio'
-Plug 'chriskempson/base16-vim'
-Plug 'junegunn/limelight.vim'
-Plug 'rakr/vim-two-firewatch'
-Plug 'mvader/vim-firewatch'
-Plug 'clinstid/eink.vim'
-
 " Add fzf fuzzy finder to runtime path
 Plug '/usr/local/opt/fzf'
 
 " Fuzzy matching presets
 Plug 'junegunn/fzf.vim'
 
-" Shoji light theme
+" Themes
+Plug 'junegunn/goyo.vim'
+Plug 'alessandroyorba/despacio', { 'commit': '75f094caa8c561d17544c416689fdd8afda8d026' }
 Plug 'nightsense/shoji'
-
-" As close as it gets
 Plug 'albertorestifo/github.vim'
-
-" Calm grey themes
 Plug 'nightsense/vrunchbang'
-
-" ia writer-inspired theme
 Plug 'reedes/vim-colors-pencil'
-
 
 " Vim themes by default define hex codes to provide color vlaues. This plugin
 " is a vanilla vim theme that allows your terminal's 16-color scheme to define
@@ -227,7 +188,6 @@ Plug 'noahfrederick/vim-noctu'
 Plug 'jeffkreeftmeijer/vim-dim'
 
 Plug 'vim-scripts/256-grayvim'
-
 
 " We run vim-polyglot, a meta-package that provides a-la-carte syntax
 " highlighting for many more languages than Vim has built-in
