@@ -76,7 +76,8 @@ prettypath() {
   echo $PATH | tr -s ':' '\n'
 }
 
-alias youtube-dl-mp4='youtube-dl --format "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4"'
+alias youtube-dl-mp4='youtube-dl --format "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4" --write-thumbnail'
+alias youtube-dl-mp3='youtube-dl --extract-audio --audio-format mp3'
 
 alias k9="killall -9"
 
