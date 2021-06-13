@@ -164,11 +164,10 @@ Plug 'rizzatti/dash.vim'
 
 Plug 'mtth/scratch.vim'
 
-" Add fzf fuzzy finder to runtime path
-Plug '/usr/local/opt/fzf'
 
-" Fuzzy matching presets
-Plug 'junegunn/fzf.vim'
+" Fuzzy file picking
+" Requires an external selection tool (fzy, fzf, selecta)
+Plug 'srstevenson/vim-picker'
 
 " Themes
 Plug 'junegunn/goyo.vim'
@@ -649,6 +648,10 @@ nnoremap <leader>w <C-w>v<C-w>l
 " Remove highlighted searches with delete
 nnoremap <BS> :nohlsearch<CR>
 
+" Set vim-picker position to open at the top
+let g:picker_split = 'topleft'
+nmap <C-p> <Plug>(PickerEdit)
+
 " Set ctrlP's position to the top
 let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_match_window_reversed = 0
@@ -657,38 +660,8 @@ let g:ctrlp_working_path_mode = 2
 let g:ctrlp_custom_ignore = '\v[\/](release|node_modules|bower_components|bower|development|build|vendor\/gems|vendor\/bundle|deps|priv|elm-stuff|dist|module)$'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 
-" Make FZF match the colors for Github colorscheme
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Special'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Constant'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
-
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
-
-" Show files with preview while searching
-command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-
 " Configuration for elm-mode
 let g:elm_format_autosave = 1
-
 
 " Limelight can't always infer from a theme what color to make darkened text
 let g:limelight_conceal_ctermfg = 'darkgray'
