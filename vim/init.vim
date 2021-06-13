@@ -67,12 +67,20 @@ Plug 'christoomey/vim-titlecase'
 Plug 'guns/vim-sexp'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'ctrlpvim/ctrlp.vim'
+
+" Copy of the "Narrow Region" emacs plugin
+" Call :NR/<leader>nr to grab a subset of the buffer and edit in a new window
+" Call :w to write those changed back to the original doc
+" Call with ! to open it in the current window
 Plug 'chrisbra/NrrwRgn'
+
+" Better buffer management
 Plug 'justinmk/vim-dirvish'
 
 " Standardized test running interface
 Plug 'janko-m/vim-test'
 
+" Python code completion
 Plug 'davidhalter/jedi-vim'
 
 " Auto-format python code
@@ -103,11 +111,6 @@ Plug 'xolox/vim-misc'
 " it's cross-platform, is pure vimscript, and performs incremental generation.
 " Plug 'ludovicchabant/vim-gutentags'
 
-" Ale is an autocompletion framework designed for neovim/vim8 that doesn't
-" really have any configuration. It replaces syntastic, so we can leave that
-" around if ale doesn't prove successful.
-" Plug 'dense-analysis/ale'
-
 " Pure-vim language server client
 Plug 'natebosch/vim-lsc'
 
@@ -120,7 +123,9 @@ Plug 'samsaga2/vim-z80'
 " this plugin auto-completes JSON documents based on info from schemastore.org
 Plug 'Quramy/vison'
 
+" Set Vim's working directory to the root of a git repository
 Plug 'airblade/vim-rooter'
+
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'c9s/bufexplorer'
 " Plug 'ervandew/supertab'
@@ -162,6 +167,7 @@ Plug 'rizzatti/dash.vim'
 " Deprecated silver searcher (grep) plugin
 " Plug 'rking/ag.vim'
 
+" Scratch buffer
 Plug 'mtth/scratch.vim'
 
 
