@@ -13,10 +13,8 @@ Plug 'othree/html5.vim'
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
-Plug 'flowtype/vim-flow'
-" Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } " vim-polyglot gives us syntax, but none of the sugar
 Plug 'Lokaltog/vim-easymotion'
-Plug 'andrep/vimacs'
+
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-vinegar'
 
@@ -66,7 +64,9 @@ Plug 'christoomey/vim-titlecase'
 
 Plug 'guns/vim-sexp'
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'ctrlpvim/ctrlp.vim'
+
+" Let's disable ctrlp for a bit to try out vim-picker
+" Plug 'ctrlpvim/ctrlp.vim'
 
 " Copy of the "Narrow Region" emacs plugin
 " Call :NR/<leader>nr to grab a subset of the buffer and edit in a new window
@@ -96,7 +96,7 @@ Plug 'rhysd/vim-crystal'
 
 " vimproc uses an external DLL file to allow for async execution of jobs from
 " within vim. This is mostly needed for tsuquyomi
-Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+" Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
 " This one lets your build colorschemes out of high-level specs
 Plug 'lifepillar/vim-colortemplate'
@@ -112,7 +112,7 @@ Plug 'xolox/vim-misc'
 " Plug 'ludovicchabant/vim-gutentags'
 
 " Pure-vim language server client
-Plug 'natebosch/vim-lsc'
+" Plug 'natebosch/vim-lsc'
 
 " Typescript plugin that handles syntax
 Plug 'leafgarland/typescript-vim'
@@ -145,9 +145,6 @@ Plug 'tpope/vim-fugitive'
 
 " Easy github
 Plug 'tpope/vim-rhubarb'
-
-" Pop open bitbucket links when using Fugitive's GBrowse command
-Plug 'tommcdo/vim-fubitive'
 
 " Jump around in the style of rails vim, but with any file.
 Plug 'tpope/vim-projectionist'
@@ -196,7 +193,7 @@ Plug 'vim-scripts/256-grayvim'
 
 " We run vim-polyglot, a meta-package that provides a-la-carte syntax
 " highlighting for many more languages than Vim has built-in
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
