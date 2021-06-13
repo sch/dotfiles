@@ -1,24 +1,24 @@
-test -e /usr/local/share/chruby/chruby.sh && source /usr/local/share/chruby/chruby.sh
-test -e /usr/local/share/chruby/auto.sh && source /usr/local/share/chruby/auto.sh
+BREW_DIR="$(brew --prefix)"
 
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+CHRUBY_DIR="$BREW_DIR/share/chruby"
+
+test -e "$CHRUBY_DIR/chruby.sh" && source "$CHRUBY_DIR/chruby.sh"
+test -e "$CHRUBY_DIR/auto.sh" && source "$CHRUBY_DIR/auto.sh"
+
+# [[ -s "$BREW_DIR/etc/autojump.sh" ]] && . "$BREW_DIR/etc/autojump.sh"
 # source /usr/share/autojump/autojump.sh
 
 # . $HOME/.asdf/asdf.sh
 # . $HOME/.asdf/completions/asdf.bash
 
-# if [[ -f $(brew --prefix)/etc/bash_completion ]]; then
-#   source $(brew --prefix)/etc/bash_completion
-# fi
-
-if [ -f /usr/local/etc/bash_completion.d ]; then
-  . /usr/local/etc/bash_completion.d
+if [ -f "$BREW_DIR/etc/bash_completion.d" ]; then
+  . "$BREW_DIR/etc/bash_completion.d"
 fi
 
 test -e opam && eval $(opam config env)
 # . /home/adrian/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
-# if [ -f $(brew --prefix)/bin/docker-machine ]; then
+# if [ -f "$BREW_DIR/bin/docker-machine" ]; then
 #   eval "$(docker-machine env default)"
 # fi
 
