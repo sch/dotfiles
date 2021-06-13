@@ -170,6 +170,14 @@ Plug 'rizzatti/dash.vim'
 " Scratch buffer
 Plug 'mtth/scratch.vim'
 
+" Neovim-specific plugins
+if has('nvim')
+  " Use Treesitter for colors, text objects, and folds
+  Plug 'nvim-treesitter/nvim-treesitter'
+
+  " Configure built-in language server client
+  Plug 'neovim/nvim-lspconfig'
+endif
 
 " Fuzzy file picking
 " Requires an external selection tool (fzy, fzf, selecta)
@@ -694,6 +702,29 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+if has('nvim')
+  lua <<EOF
+local nvim_lsp = require('lspconfig')
+
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true
+  },
+  indent = {
+    enable = true
+  }
+}
+
+local on_attach = function(client, bufnr)
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+end
+
+require'lspconfig'.tsserver.setup { on_attach = on_attach }
+require'lspconfig'.vuels.setup { on_attach = on_attach }
+EOF
+endif
+
 
 " =============================================================================
 " The treasure trove that are these configs mostly came from:
