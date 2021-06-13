@@ -120,6 +120,9 @@ Plug 'leafgarland/typescript-vim'
 " Color z80/gameboy asm correctly
 Plug 'samsaga2/vim-z80'
 
+" 6502 assembly syntax highlighting
+Plug 'maxbane/vim-asm_ca65'
+
 " this plugin auto-completes JSON documents based on info from schemastore.org
 Plug 'Quramy/vison'
 
