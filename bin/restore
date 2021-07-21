@@ -10,6 +10,8 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 if ! command -v brew >/dev/null; then
     echo "Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    # Temporarily add homebrew to the path, until Zero can restore the profile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 export PATH="/usr/local/bin:$PATH"
