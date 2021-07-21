@@ -55,7 +55,6 @@ brew "yarn"
 brew "youtube-dl"
 
 cask "1password"
-cask "anvil"
 cask "atom"
 cask "blender"
 cask "calibre"
