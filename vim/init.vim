@@ -716,8 +716,11 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 
-local on_attach = function(client, bufnr)
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+local on_attach = function(client, buffer)
+  local options = { noremap=true, silent=true }
+
+  vim.api.nvim_buf_set_option(buffer, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  vim.api.nvim_buf_set_keymap(buffer, 'n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', options)
 end
 
 require'lspconfig'.tsserver.setup { on_attach = on_attach }
