@@ -1,4 +1,4 @@
-tap "caskroom/cask"
+tap "homebrew/cask"
 
 brew "asdf"
 brew "autojump"
