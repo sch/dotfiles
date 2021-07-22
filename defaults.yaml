@@ -1,0 +1,7 @@
+com.apple.dock:
+  orientation: left
+  autohide: true
+  autohide-delay: 0
+  autohide-time-modifier: 0.3
+NSGlobalDomain:
+  NSToolbarTitleViewRolloverDelay: 0
