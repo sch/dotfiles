@@ -15,6 +15,9 @@ if [ -f "$BREW_DIR/etc/bash_completion.d" ]; then
   . "$BREW_DIR/etc/bash_completion.d"
 fi
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+
 test -e opam && eval $(opam config env)
 # . /home/adrian/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
