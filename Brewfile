@@ -99,7 +99,7 @@ cask "vlc"
 cask "xquartz"
 cask "xscreensaver"
 
-mas "Moom", 419330170
-mas "Pixelmator Pro", 1289583905
-mas "Tot", 1491071483
-mas "iA Writer", 775737590
+mas "Moom", id: 419330170
+mas "Pixelmator Pro", id: 1289583905
+mas "Tot", id: 1491071483
+mas "iA Writer", id: 775737590
