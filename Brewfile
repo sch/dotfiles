@@ -3,6 +3,7 @@ tap "heroku/brew"
 
 brew "asdf"
 brew "autojump"
+brew "bat"
 brew "camlistore"
 brew "chruby"
 brew "chruby-fish"
