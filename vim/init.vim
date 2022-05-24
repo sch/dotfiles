@@ -183,6 +183,9 @@ endif
 " Requires an external selection tool (fzy, fzf, selecta)
 Plug 'srstevenson/vim-picker'
 
+" Syntax highlighting for https://cooklang.org
+Plug 'luizribeiro/vim-cooklang', { 'for': 'cook' }
+
 " Themes
 Plug 'junegunn/goyo.vim'
 Plug 'alessandroyorba/despacio', { 'commit': '75f094caa8c561d17544c416689fdd8afda8d026' }
