@@ -1,0 +1,13 @@
+# Take the best quality stream, but save it as an mp4 for embedded metadata
+--format "bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4"
+--merge-output-format mp4
+
+# Add the thumbnail image to the mp4
+--write-thumbnail
+--embed-thumbnail
+
+# Try to embed non-automatically generated subtitles if they exist
+--embed-subs
+--write-sub
+
+--add-metadata
