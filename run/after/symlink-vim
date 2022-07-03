@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# symlink-vim - My vim configuration assumes a neovim directory structure, but
+#               is written conditionally to be able to support vanilla vim. This
+#               script symlinks it with the correct names.
+
+set -e
+
+cd "$(dirname "$0")"
+
+ln -Fs `pwd`/vim/init.vim ~/.vimrc
+ln -Fs `pwd`/vim ~/.vim
+ln -Fs `pwd`/vim ~/.config/nvim
