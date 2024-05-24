@@ -1,8 +1,8 @@
 [user]
 	name = Adrian Schaedle
-	signingkey = adrian@schaedle.me
+	signingkey = adrian@schaedle.dev
 	useConfigOnly = true
-	email = adrian@schaedle.me
+	email = adrian@schaedle.dev
 
 [alias]
 	aliases = config --get-regexp ^alias\\.
@@ -47,6 +47,7 @@
 
 [push]
 	default = current
+	autoSetupRemote = true
 
 [rerere]
 	enabled = true
