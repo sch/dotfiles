@@ -5,3 +5,4 @@ vim/plugged/*
 vim/undo/*
 .netrwhist
 config/karabiner/automatic_backups/*
+Brewfile.lock.json
