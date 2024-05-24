@@ -6,7 +6,7 @@
 
 set -e
 
-cd "$(dirname "$0")"
+cd "$(dirname "$0")/../.."
 
 ln -Fs `pwd`/vim/init.vim ~/.vimrc
 ln -Fs `pwd`/vim ~/.vim
