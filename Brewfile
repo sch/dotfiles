@@ -81,6 +81,10 @@ cask "vlc"
 cask "xquartz"
 cask "xscreensaver"
 
+mas "1Blocker", id: 1365531024
+mas "Boop", id: 1518425043
+mas "Mela", id: 1568924476
+mas "MetaDoctor", id: 988250390
 mas "Moom", id: 419330170
 mas "Pixelmator Pro", id: 1289583905
 mas "Tot", id: 1491071483
