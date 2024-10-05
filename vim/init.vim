@@ -665,9 +665,14 @@ nnoremap <leader>w <C-w>v<C-w>l
 " Remove highlighted searches with delete
 nnoremap <BS> :nohlsearch<CR>
 
+""" Use vim-picker to manage fuzzy finding files
+nmap <C-p> <Plug>(PickerEdit)
 " Set vim-picker position to open at the top
 let g:picker_split = 'topleft'
-nmap <C-p> <Plug>(PickerEdit)
+" Use ripgrep as the vim-picker file finder
+let g:picker_custom_find_executable = 'rg'
+" Pass these options along to ripgrep
+let g:picker_custom_find_flags = '--color never --files --text'
 
 " Set ctrlP's position to the top
 let g:ctrlp_match_window_bottom = 0
