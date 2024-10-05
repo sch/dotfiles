@@ -1,0 +1,55 @@
+"ui.menu" = { fg = "light-gray", bg = "gray" }
+"ui.menu.selected" = { modifiers = ["reversed"] }
+"ui.popup" = { bg = "black" }
+"ui.window" = { bg = "black" }
+"ui.linenr" = { fg = "gray", bg = "black", modifiers = ["dim"] }
+"ui.linenr.selected" = { fg = "white", bg = "black" }
+"ui.selection" = { fg = "gray", modifiers = ["reversed"] }
+"comment" = { fg = "gray", modifiers = ["italic", "dim"] }
+"ui.statusline" = { fg = "white", bg = "black" }
+"ui.statusline.inactive" = { fg = "gray", bg = "black", modifiers = ["dim"] }
+"ui.help" = { fg = "white", bg = "black" }
+"ui.cursor" = { fg = "light-gray", modifiers = ["reversed"] }
+"ui.cursor.primary" = { fg = "light-gray", modifiers = ["reversed"] }
+"ui.virtual.whitespace" = "light-gray"
+"ui.virtual.jump-label" = { fg = "blue", modifiers = ["bold", "underlined"] }
+"ui.virtual.ruler" = { bg = "black" }
+"variable" = "white"
+"constant.numeric" = "light-blue"
+"constant" = "blue"
+"attribute" = "yellow"
+"type" = "light-yellow"
+"ui.cursor.match" = { modifiers = ["underlined"] }
+"string"  = "light-blue"
+"variable.other.member" = "blue"
+"constant.character.escape" = "light-cyan"
+"function" = "light-magenta"
+"constructor" = "cyan"
+"special" = "light-blue"
+"keyword" = "light-red"
+"label" = "light-magenta"
+"namespace" = "light-magenta"
+"constant.builtin" = "light-blue"
+
+"markup.heading" = "light-blue"
+"markup.list" = "light-red"
+"markup.bold" = { fg = "light-yellow", modifiers = ["bold"] }
+"markup.italic" = { fg = "light-magenta", modifiers = ["italic"] }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"markup.link.url" = { fg = "yellow", modifiers = ["underlined"] }
+"markup.link.text" = "light-red"
+"markup.quote" = "light-cyan"
+"markup.raw" = "light-green"
+
+"diff.plus" = "light-green"
+"diff.delta" = "yellow"
+"diff.minus" = "light-red"
+
+"diagnostic" = { modifiers = ["underlined"] }
+"diagnostic.hint" = { modifiers = ["underlined"] }
+"ui.gutter" = { bg = "black" }
+"info" = "light-blue"
+"hint" = { fg = "black", bg = "light-yellow" }
+"debug" = "gray"
+"warning" = "yellow"
+"error" = "light-red"

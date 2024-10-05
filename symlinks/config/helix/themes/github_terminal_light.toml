@@ -1,0 +1,66 @@
+# This theme is assuming you're using Terminal.app or some 16-color theme
+#
+# | terminal.app  | helix      |
+# | ------------- | ---------- |
+# | Black         | black      |
+# | Bright Black  | gray       |
+# | White         | light-gray |
+# | Bright White  | white      |
+# | Cyan (orange) | orange     |
+
+
+"ui.menu" = { fg = "black", bg = "light-gray" }
+"ui.menu.selected" = { fg="black", bg = "yellow" }
+"ui.popup" = { bg = "light-gray" }
+"ui.window" = { bg = "light-gray", fg = "light-gray" }
+"ui.linenr" = { fg = "black", bg = "white", modifiers = ["dim"] }
+"ui.linenr.selected" = { fg = "black", bg = "white" }
+"ui.selection" = { bg = "light-yellow" }
+"comment" = { fg = "gray", modifiers = ["italic"] }
+"ui.statusline" = { fg = "black", bg = "light-gray" }
+"ui.statusline.inactive" = { fg = "black", bg = "light-gray", modifiers = ["dim"] }
+"ui.help" = { fg = "black", bg = "white" }
+"ui.cursor" = { bg = "yellow" }
+"ui.cursor.primary" = { fg = "black", modifiers = ["reversed"] }
+"ui.virtual.whitespace" = "light-red"
+"ui.virtual.jump-label" = { fg = "blue", modifiers = ["bold", "underlined"] }
+"ui.virtual.ruler" = { bg = "black" }
+"variable" = "black"
+"constant.numeric" = "light-blue"
+"constant" = "blue"
+"attribute" = "magenta"
+"type" = "magenta"
+"ui.cursor.match" = { modifiers = ["underlined"] }
+"string"  = "light-blue"
+"variable.other.member" = "blue"
+"constant.character.escape" = "light-cyan"
+"function" = "magenta"
+"constructor" = "cyan"
+"special" = "light-blue"
+"keyword" = "light-red"
+"label" = "magenta"
+"namespace" = "magenta"
+"constant.builtin" = "light-blue"
+
+# "markup.heading" = {bg = "light-blue" }
+# "markup.list" = "t-red"
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"markup.link.url" = { modifiers = ["underlined"] }
+"markup.link.text" = "red"
+"markup.quote" = "cyan"
+"markup.raw.inline" = { bg = "white" }
+
+"diff.plus" = "light-green"
+"diff.delta" = "yellow"
+"diff.minus" = "light-red"
+
+"diagnostic" = { modifiers = ["underlined"] }
+"diagnostic.hint" = { modifiers = ["underlined"] }
+"ui.gutter" = { bg = "white", fg = "black" }
+"info" = "light-blue"
+"hint" = { fg = "black", bg = "light-yellow" }
+"debug" = "gray"
+"warning" = "yellow"
+"error" = "light-red"

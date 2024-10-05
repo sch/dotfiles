@@ -1,0 +1,15 @@
+theme = "github_terminal_light"
+
+[keys.normal]
+C-h = "jump_view_left"
+C-l = "jump_view_right"
+C-k = "jump_view_up"
+C-j = "jump_view_down"
+
+[keys.normal."space"]
+"." = "file_picker_in_current_buffer_directory"
+
+# Wishlist
+# --------
+
+# something to bind to :cd <C-r>%<C-w> (cd'ing into the directory of the current file)
