@@ -6,3 +6,5 @@ vim/undo/*
 .netrwhist
 config/karabiner/automatic_backups/*
 Brewfile.lock.json
+Flame.saver
+!Flame.saver.zip
