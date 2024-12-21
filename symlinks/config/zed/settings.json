@@ -4,23 +4,46 @@
 // documentation: https://zed.dev/docs/configuring-zed
 //
 // To see all of Zed's default settings without changing your
-// custom settings, run the `open default settings` command
-// from the command palette or from `Zed` application menu.
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
 {
   "vim_mode": true,
-  "ui_font_size": 15,
-  "buffer_font_size": 14,
+  "ui_font_size": 14,
+  "ui_font_family": "SF Compact Text",
+  "ui_font_weight": 400,
   "buffer_font_family": "SF Mono",
+  "buffer_font_size": 14,
   "theme": {
     "mode": "system",
-    "light": "One Light",
-    "dark": "Github Dark"
+    "light": "Github Light",
+    "dark": "One Dark"
   },
-  "git": {
-    "inline_blame": {
-      "enabled": true,
-      "delay_ms": 3000
+  "tabs": { "file_icons": false },
+  "project_panel": { "file_icons": false },
+  "languages": {
+    "JavaScript": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "TypeScript": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "TSX": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
     }
   },
-  "format_on_save": "off"
+  "lsp": {
+    "eslint": {
+      "settings": {
+        "codeActionOnSave": {
+          "rules": ["import/order"]
+        }
+      }
+    }
+  }
 }
